@@ -1,0 +1,116 @@
+.role-choice {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    color: #666;
+    h1 {
+        display: block;
+        width: 485px;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 32px;
+        font-weight: normal;
+        span {
+            display: block;
+        }
+        margin-bottom: 80px;
+    }
+    .side-wrapper {
+        position: relative;
+        width: 600px;
+        margin: 0 auto;
+        max-width: 100%;
+        text-align: center;
+        span {
+            display: block;
+            height: 170%;
+            top: -20%;
+            left: 50%;
+            width: 1px;
+            background-color: #aaa;
+            position: absolute;
+            transition: height ease 0.5s;
+        }
+        .pull-left {
+            width: 50%;
+            padding-right: 10%;
+        }
+        .pull-right {
+            width: 50%;
+            padding-left: 10%;
+        }
+        h2 {
+            margin-bottom: 30px;
+            font-size: 26px;
+        }
+        .btn {
+            font-size: 22px;
+            width: 200px;
+            height: 60px;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .role-choice {
+        padding-top: 70px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .role-choice {
+        h1 {
+            font-size: 26px;
+            padding: 0 30px;
+            span {
+            	display: inline;
+            }
+        }
+
+
+        .side-wrapper {
+            .pull-right,
+            .pull-left {
+                padding: 0;
+            }
+            h2 {
+            	font-size:20px;
+            }
+            .btn {
+            	max-width: 100%;
+            	width:170px;
+            	height: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .role-choice {
+        h1 {
+        	margin-bottom: 40px;
+        }
+        .side-wrapper {
+        	.pull-left {
+        		margin-bottom: 80px;
+        	}
+            .pull-right,
+            .pull-left {
+        		width:100%;
+
+                float:none !important;
+
+            }
+            h2 {margin-bottom: 10px;}
+            span {
+
+            	width: 50%;
+            	left:25%;
+            	height:1px;
+            	top:50%;
+            transition: width ease 0.5s;
+
+            }
+        }
+    }
+}

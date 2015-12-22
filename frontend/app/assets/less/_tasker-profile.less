@@ -1,0 +1,134 @@
+.tasker-profile {
+    padding-bottom: 40px;
+    .tasker-profile-head {
+        .container {}
+        padding: 25px 0;
+        background-color: @gray-dark;
+        color: #fff;
+        hr {
+            border-color: #666;
+        }
+        .rounded-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 85px;
+            height: 85px;
+            border: 3px solid @base-color;
+            .border-radius(@border-radius-max);
+        }
+        .tasker-info-primary {
+            position: relative;
+            padding-left: 115px;
+
+        }
+        .tasker-title {
+            color: @base-color;
+            padding-top: 5px;
+        }
+        .tasker-desc {}
+        .tasker-location {
+            font-size: 12px;
+            color: #aaa;
+        }
+        .btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    .tasker-info {
+         padding-right: 178px;
+        h5 {
+            margin-top: 0;
+            color: #aaa;
+        }
+        span {
+            color: #fff;
+        }
+    }
+    .item-section {
+        padding-left: 115px;
+        margin-top: 30px;
+        .title-section {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            font-weight: @font-weight-bold;
+            margin-bottom: 20px;
+        }
+        .item-jobs-prev {
+            margin-bottom: 20px;
+            color: #777;
+            .item-jobs-prev-title {
+                font-weight: @font-weight-bold;
+                font-size: 14px;
+                margin-bottom: 5px;
+                color: #666;
+            }
+            .item-jobs-prev-time {
+                color: #aaa;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .tasker-profile {
+        .tasker-profile-head {
+            .item-title {
+                padding-top: 0;
+            }
+            .rounded-image {
+                width: 80px;
+                height: 80px;
+            }
+            .tasker-info-head {
+                padding-left: 100px;
+            }
+            .tasker-info-primary {
+                padding-left: 0;
+            }
+            .tasker-info {
+                &:after {
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    content: "";
+                    margin: 20px 0;
+                    background-color: @gray;
+                }
+            }
+            .btn {
+                position: relative;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .tasker-profile {
+        .tasker-profile-head {
+            .btn {
+                width: 100%;
+            }
+            .tasker-info {
+                h5 {
+                    margin-bottom: 0;
+                    display: inline-block;
+                    min-width: 120px;
+                }
+                span {
+                    display: inline-block;
+                }
+                .col-sm-4 {
+                    width: 100%;
+                    float: none !important;
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

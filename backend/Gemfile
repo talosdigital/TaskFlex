@@ -1,0 +1,31 @@
+source 'https://rubygems.org'
+git_source(:talos_github){ |repo_name|
+	"https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/#{repo_name}.git"
+}
+
+gem 'rails', '4.2.3'
+
+gem 'rails-api'
+gem 'puma'
+gem 'grape'
+gem 'rack-cors'
+gem 'roadie'
+gem 'roadie-rails'
+gem 'sidekiq'
+gem 'redis-namespace'
+
+gem 'td-jobs', talos_github: 'TDJobsGem', branch: 'develop'
+gem 'td-core', talos_github: 'TDCoreGem', branch: 'develop'
+gem 'td-users', talos_github: 'TDUserGem', branch: 'develop'
+
+group :development do
+  gem 'spring'
+  gem 'rubocop', require: false
+end
+
+group :development, :test do
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
+  gem 'ci_reporter_rspec'
+end

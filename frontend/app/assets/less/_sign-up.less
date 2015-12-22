@@ -1,0 +1,73 @@
+
+/*[sign up]*/
+.sign-up {
+    padding-bottom: 40px;
+
+    .sign-up-hire-title {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        text-transform: capitalize;
+        background-color: #eee;
+        font-size:18px;
+    }
+    .container {
+        width: 380px;
+        max-width: 100%;
+        padding-top: 50px;
+    }
+    .btn-facebook {
+        text-transform: capitalize;
+        background-color: #3a5898;
+        border-color: #3a5898;
+        color: #fff;
+        position: relative;
+        font-size: 17px;
+        height: 55px;
+        padding: 0 !important;
+        font-weight: 300 !important;
+        &:hover,
+        &:focus {
+            background-color: #4b6eb8;
+            border-color: #4b6eb8;
+            outline: none;
+        }
+        .fa-facebook {
+            margin-right: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 55px;
+            heigh: 100%;
+            line-height: 55px;
+            font-size: 20px;
+        }
+    }
+    .text-signup {
+        margin: 25px 0;
+        text-align: center;
+        position: relative;
+        span {
+            display: inline-block;
+            background-color: #fff;
+            z-index: 2;
+            padding: 0 10px;
+            position: relative;
+            color: #aaa;
+        }
+        &:after {
+            content: "";
+            height: 1px;
+            width: 100%;
+            background-color: #aaa;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            z-index: 1;
+        }
+    }
+    .form-group .text-danger {
+        color: red;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="offer-replies">
+    <div class="container">
+        <tf-alert tf-content="offerReplies.alert" ng-show="offerReplies.alert"></tf-alert>
+        <div class="page-header">
+            <h2 class="page-title">Offer Replies</h2>
+        </div>
+        <tf-empty tf-message="'You have no pending offers'" tf-show="offerReplies.showEmpty"></tf-empty>
+        <div class="jobs-item" ng-repeat="offer in offerReplies.offers">
+            <div class="row">
+                <div class="col-xs-9 col-sm-10 col-md-10">
+                    <h3 class="item-title text-color-base">{{ offer.job.name }}</h3>
+                    <p class="item-desc">{{ offer.job.description }}</p>
+                </div>
+                <div class="col-xs-3 col-sm-2 col-md-2">
+                    <button ng-click="offerReplies.reply(offer.id)" class="btn btn-primary btn-block">Reply</button>
+                </div>
+            </div>
+        </div>
+        <tf-paginator tf-current="offerReplies.currentPage" tf-max-page="offerReplies.pages" tf-on-change="offerReplies.onPageChange"></tf-paginator>
+    </div>
+</div>

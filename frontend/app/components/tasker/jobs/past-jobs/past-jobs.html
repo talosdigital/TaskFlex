@@ -1,0 +1,32 @@
+<div class="past-jobs">
+    <div class="container">
+        <tf-alert tf-content="pastJobs.alert" ng-show="pastJobs.alert"></tf-alert>
+        <div class="page-header">
+            <h2 class="page-title">Past Jobs</h2>
+        </div>
+        <tf-empty tf-message="'You haven\'t completed any job yet'" tf-show="pastJobs.showEmpty"></tf-empty>
+        <table class="table table-bordered" ng-hide="pastJobs.showEmpty">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Period</th>
+                    <th>Payment</th>
+                    <th>Hours per day</th>
+                    <th>Owner Email</th>
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="job in pastJobs.jobs">
+                    <td><a ui-sref="jobDetails({ job: job.id })"> {{ job.name }} </a></td>
+                    <td><tf-date tf-date-expression="job.startDate" tf-date-format="'small'"></tf-date> - <tf-date tf-date-expression="job.finishDate" tf-date-format="'small'"></tf-date></td>
+                    <td> {{ job.metadata.payment.value }} {{ job.metadata.payment.currency.name }} / Hour </td>
+                    <td> {{ job.metadata.hours }} </td>
+                    <td> {{ job.metadata.contact.email }} </td>
+                    <td> {{ job.metadata.contact.callingCode}} {{ job.metadata.contact.phone}} </td>
+                </tr>
+            </tbody>
+        </table>
+        <tf-paginator tf-current="pastJobs.currentPage" tf-max-page="pastJobs.pages" tf-on-change="pastJobs.onPageChange"></tf-paginator>
+    </div>
+</div>

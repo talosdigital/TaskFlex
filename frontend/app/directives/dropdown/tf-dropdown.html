@@ -1,0 +1,14 @@
+<div class="dropdown">
+    <button class="btn btn-dropdown dropdown-toggle" ng-class="{ 'btn-dropdown-hasicon': tfHeadIcon }" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <span class="{{ tfHeadIcon }}" ng-show="tfHeadIcon"></span> {{ tfHeadText }}
+        <i class="fa fa-angle-down"></i>
+    </button>
+    <ul class="dropdown-menu custom-dropdown">
+        <li ng-repeat="item in tfItems" tabindex="{{ $index }}">
+            <a ng-click="tfClickItem(item, $index)">
+                <i class="fa fa-check" ng-show="tfShowCheck(item, $index)"></i>
+                {{ tfItemText(item, $index) }}
+            </a>
+        </li>
+    </ul>
+</div>

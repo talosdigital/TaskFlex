@@ -1,0 +1,75 @@
+<div class="invitation-details">
+    <div class="container">
+        <tf-alert tf-content="details.alert" ng-show="details.alert"></tf-alert>
+        <h2 class="item-title">{{ details.invitation.job.name }}</h2>
+        <div class="item-desc">{{ details.invitation.job.metadata.profession }}</div>
+        <div class="item-cat"><span class="{{ details.invitation.job.metadata.category.image }}"></span> {{ details.invitation.job.metadata.category.name }}</div>
+        <div class="item-message">
+            <p>
+                {{ details.invitation.description }}
+            </p>
+        </div>
+        <div class="item-overview">
+            <h4>Overview</h4>
+            <p>
+                {{ details.invitation.job.description }}
+            </p>
+        </div>
+        <div class="item-jobdetails">
+            <h4>Job Details</h4>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="item-jobinfo">
+                        <h5>Location</h5>
+                        <span>{{ details.invitation.job.metadata.country.name }} > {{ details.invitation.job.metadata.city }}</span>
+                    </div>
+                    <div class="item-jobinfo">
+                        <h5>Hours per day</h5>
+                        <span>{{ details.invitation.job.metadata.hours }}</span>
+                    </div>
+                    <div class="item-jobinfo">
+                        <h5>Number of Hires</h5>
+                        <span>{{ details.invitation.job.metadata.hires }} Taskers</span>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="item-jobinfo">
+                        <h5>Budget</h5>
+                        <span>{{ details.invitation.job.metadata.payment.value }} {{ details.invitation.job.metadata.payment.currency.name }} / Hour</span>
+                    </div>
+                    <div class="item-jobinfo">
+                        <h5>Equiment Needed</h5>
+                        <span>{{ details.invitation.job.metadata.equipment }}</span>
+                    </div>
+                    <div class="item-jobinfo">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <h5>Start Date:</h5>
+                                <span><tf-date tf-date-expression="details.invitation.job.startDate" tf-date-format="'small'"></tf-date></span>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                <h5>End Date:</h5>
+                                <span><tf-date tf-date-expression="details.invitation.job.finishDate" tf-date-format="'small'"></tf-date></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="clearfix" ng-hide="details.rejectConfirm">
+            <div class="pull-left">
+                <button ng-click="details.reply()" type="" class="btn btn-default btn-outline"><i class="fa fa-envelope"></i> Reply</button>
+                <button ng-click="details.toggleRejectConfirm()" type="" class="btn btn-default btn-outline"><i class="fa fa-times"></i> Reject</button>
+            </div>
+            <div class="pull-right">
+                <button ng-click="details.accept()" class="btn btn-primary"><i class="fa fa-check"></i> Accept</button>
+            </div>
+        </div>
+        <div class="text-left" ng-show="details.rejectConfirm">
+            <span>Are you sure you want to reject this offer? </span>
+            <button ng-click="details.toggleRejectConfirm()" type="" class="btn btn-default btn-outline"><i class="fa fa-times"></i> Cancel</button>
+            <button ng-click="details.reject()" type="" class="btn btn-primary btn-outline"><i class="fa fa-check"></i> Confirm</button>
+        </div>
+    </div>
+</div>

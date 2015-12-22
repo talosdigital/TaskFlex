@@ -1,0 +1,33 @@
+﻿<div class="deal-confirmation">
+    <div class="container">
+        <tf-alert tf-content="deal.alert" ng-show="deal.alert"></tf-alert>
+        <div class="text-center" ng-show="deal.offerFound">
+            <h2 class="deal-title">You have a deal!</h2>
+            <img width="72" src="/assets/images/confirm.png" alt="">
+            <div class="deal-info">
+                <div class="deal-info-header">
+                    Summary of the negociation
+                </div>
+                <div class="deal-info-content">
+                    <h2 class="item-title">{{ deal.job.name }}</h2>
+                    <h3 class="item-desc">{{ deal.job.metadata.profession }}</h3>
+                    <div class="final-rate">
+                        <p class="final-rate-title">Final Rate</p>
+                        <p class="final-rate-value">{{ deal.offer.metadata.payment.value }} {{ deal.offer.metadata.payment.currency.name }}</p>
+                    </div>
+                    <div class="deal-time">
+                        <span>
+                            <span>Start Date</span>
+                            <span><tf-date tf-date-expression="deal.job.startDate"></tf-date></span>
+                        </span>
+                        <span>
+                            <span>End Date</span>
+                            <span><tf-date tf-date-expression="deal.job.finishDate"></tf-date></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <a ui-sref="landing" class="btn btn-primary deal-gohome">GO HOME</a>
+        </div>
+    </div>
+</div>

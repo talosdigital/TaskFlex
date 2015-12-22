@@ -1,0 +1,31 @@
+<div class="past-taskers">
+    <div class="container">
+        <div class="page-header">
+            <h2 class="page-title">Past Taskers</h2>
+        </div>
+        <tf-empty tf-message="'You don\'t have past taskers yet'" tf-show="pastTaskers.showEmpty"></tf-empty>
+        <table class="table table-bordered" ng-hide="pastTaskers.showEmpty">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Tasker</th>
+                    <th>Period</th>
+                    <th>Amount</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in pastTaskers.items">
+                    <td>{{ item.job.name }}</a></td>
+                    <td><a ng-click="pastTaskers.viewProfile(item.tasker.id)">{{ item.tasker.firstName }} {{ item.tasker.lastName}}</a></td>
+                    <td><tf-date tf-date-expression="item.job.startDate"></tf-date> - <tf-date tf-date-expression="item.job.finishDate"></tf-date></td>
+                    <td>{{ item.job.metadata.payment.value}} {{ item.job.metadata.payment.currency.name }} / Hour</td>
+                    <td>{{ item.tasker.email }}</td>
+                    <td>{{ item.tasker.metadata.callingCode }} {{ item.tasker.metadata.phone }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <tf-paginator tf-current="pastTaskers.currentPage" tf-max-page="pastTaskers.pages" tf-on-change="pastTaskers.onPageChange"></tf-paginator>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="login">
+    <div class="login-box">
+        <tf-alert tf-content="login.alert" ng-show="login.alert"></tf-alert>
+        <form name="loginForm" ng-submit="login.submit(loginForm.$valid)" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid && login.submitted }">
+                <input type="email" name="email" class="form-control" placeholder="Email"
+                       ng-model="login.user.email" required />
+                <span class="text-danger">Email is not valid.</span>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid && login.submitted }">
+                <input type="password" class="form-control" name="" placeholder="Password"
+                       ng-model="login.user.password" required />
+                 <span class="text-danger">Password is not valid.</span>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="remember" ng-model="login.user.remember"> Remember me
+                </label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Log in <i class="fa fa-arrow-right"></i></button>
+            </div>
+            <div>
+                <a ui-sref="password.request">Forgot Password ?</a>
+            </div>
+        </form>
+    </div>
+</div>

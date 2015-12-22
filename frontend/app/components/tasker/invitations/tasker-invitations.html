@@ -1,0 +1,22 @@
+<div class="tasker-invitations">
+    <div class="container">
+        <tf-alert tf-content="invitations.alert" ng-show="invitations.alert"></tf-alert>
+        <div class="page-header">
+            <h2 class="page-title">You have {{ invitations.totalItems }} job invitations</h2>
+        </div>
+        <tf-empty tf-message="'You don\'t have pending invitations to jobs in this moment'" tf-show="invitations.showEmpty"></tf-empty>
+        <div class="item-invitations" ng-repeat="invitation in invitations.invitations">
+            <h2 class="item-title">{{ invitation.job.name }}</h2>
+            <h3 class="item-tagline"><span class="{{ invitation.job.metadata.category.image }}"></span> {{ invitation.job.metadata.category.name }} </h3>
+            <div class="item-date"><span>Start Date:</span> <tf-date tf-date-expression="invitation.job.startDate"></tf-date> <span>End Date:</span> <tf-date tf-date-expression="invitation.job.finishDate"></tf-date> </div>
+            <div class="item-price">{{ invitation.job.metadata.payment.value }} {{ invitation.job.metadata.payment.currency.name }} / Hour</div>
+            <p class="item-desc">{{ invitation.job.description }}</p>
+            <div class="item-email">
+                <a href="">{{ invitation.owner.firstName }} {{ invitation.owner.lastName }}</a>
+                <div>{{ invitation.owner.email }}</div>
+            </div>
+            <button ng-click="invitations.viewDetails(invitation.id)" class="btn btn-sm btn-primary">View Details</button>
+        </div>
+        <tf-paginator tf-current="invitations.currentPage" tf-max-page="invitations.pages" tf-on-change="invitations.onPageChange"></tf-paginator>
+    </div>
+</div>

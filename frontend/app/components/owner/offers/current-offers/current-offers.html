@@ -1,0 +1,27 @@
+<div class="current-offers">
+    <div class="container">
+        <tf-alert tf-content="currentOffers.alert" ng-show="currentOffers.alert"></tf-alert>
+        <div class="page-header clearfix">
+            <h2 class="pull-left page-title">Current Offers</h2>
+            <a class="pull-right " ui-sref="offerReplies">See your offer replies</a>
+        </div>
+        <tf-empty tf-message="'You currently don\'t have active jobs'" tf-show="currentOffers.showEmpty"></tf-empty>
+        <div class="item-offers" ng-repeat="job in currentOffers.jobs">
+            <h3 class="item-title text-color-base"><span class="{{ job.metadata.category.image }}"></span> {{ job.name }}</h3>
+            <h4 class="item-tagline">{{ job.metadata.profession }}</h4>
+            <div class="item-date"><tf-date tf-date-expression=job.startDate><tf-date></div>
+            <div class="item-price">{{ job.metadata.payment.value }} {{ job.metadata.payment.currency.name }} / Hour</div>
+            <p class="item-desc">{{ job.description }}</p>
+            <div class="item-status">
+                <span class="item-status-label">Status of your taskers invitation:</span>
+                <div class="button-status">
+                    <button ng-click="currentOffers.showTaskers('accepted', job.id)" class="btn btn-xs btn-success">Accepted <i class="fa fa-check-circle"></i></button>
+                    <button ng-click="currentOffers.showTaskers('pending', job.id)" class="btn btn-xs btn-warning">Pending <i class="fa fa-clock-o"></i></button>
+                    <button ng-click="currentOffers.showTaskers('rejected', job.id)" class="btn btn-xs btn-danger">Rejected <i class="fa fa-times-circle"></i></button>
+                </div>
+            </div>
+            <button ui-sref="jobDetails({ job: job.id })" class="btn btn-primary btn-sm btn-block">View Details</button>
+        </div>
+    </div>
+    <tf-paginator tf-current="currentOffers.currentPage" tf-max-page="currentOffers.pages" tf-on-change="currentOffers.onPageChange"></tf-paginator>
+</div>

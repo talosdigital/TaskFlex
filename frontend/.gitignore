@@ -1,0 +1,15 @@
+# Created by https://www.gitignore.io
+
+app/assets/css/styles.css
+
+### Bower ###
+/app/lib
+.bower-cache
+.bower-registry
+.bower-tmp
+
+### Node ###
+node_modules
+
+## Spec coverage ##
+coverage/

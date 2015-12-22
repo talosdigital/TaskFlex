@@ -1,0 +1,4 @@
+tf_web:
+  build: .
+  ports:
+    - "80:8000"

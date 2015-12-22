@@ -1,0 +1,24 @@
+<div class="current-jobs">
+    <div class="container">
+        <tf-alert tf-content="currentJobs.alert" ng-show="currentJobs.alert"></tf-alert>
+        <div class="page-header">
+            <h2 class="page-title">Current Jobs </h2>
+        </div>
+        <tf-empty tf-message="'You currently don\'t have any active job'" tf-show="currentJobs.showEmpty"></tf-empty>
+        <div class="jobs-item" ng-repeat="job in currentJobs.jobs">
+            <h3 class="item-title text-color-base"><span class="{{ job.metadata.category.image }}"></span> {{ job.name }} </h3>
+            <div class="item-date"><tf-date tf-date-expression=job.startDate><tf-date></div>
+            <div class="item-price">{{ job.metadata.payment.value }} {{ job.metadata.payment.currency.name }} / Hour</div>
+            <p class="item-desc">
+                {{ job.description }}
+            </p>
+            <div class="item-status">
+                <span class="item-status-title">Job Status:</span>
+                <span ng-show="job.status == 'STARTED'"class="text-status-apccepted"><i class="fa fa-check-circle"></i> Currently working </span>
+                <span ng-hide="job.status == 'STARTED'"class="text-status-pending"><i class="fa fa fa-clock-o"></i> Not active yet </span>
+            </div>
+            <button ui-sref="jobDetails({ job: job.id })" class="btn btn-primary btn-sm btn-block">View Details</button>
+        </div>
+        <tf-paginator tf-current="currentJobs.currentPage" tf-max-page="currentJobs.pages" tf-on-change="currentJobs.onPageChange"></tf-paginator>
+    </div>
+</div>

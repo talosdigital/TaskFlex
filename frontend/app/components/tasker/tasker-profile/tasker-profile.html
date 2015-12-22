@@ -1,0 +1,64 @@
+<div class="tasker-profile">
+    <div class="container">
+      <tf-alert ng-hide="taskerProfile.taskerFound" tf-content="taskerProfile.alert" ng-show="taskerProfile.alert"></tf-alert>
+    </div>
+    <div ng-show="taskerProfile.taskerFound" class="tasker-profile-head">
+        <div class="container">
+            <tf-alert tf-content="taskerProfile.alert" ng-show="taskerProfile.alert"></tf-alert>
+            <div class="tasker-info-primary">
+                <img ng-src="{{ taskerProfile.tasker.metadata.picture }}" class="rounded-image">
+                <div class="tasker-info-head">
+                    <h2 class="tasker-title">
+                        {{ taskerProfile.tasker.firstName }} {{ taskerProfile.tasker.lastName }}
+                    </h2>
+                    <h3 class="tasker-desc">{{ taskerProfile.tasker.metadata.profession }}</h3>
+                    <div class="tasker-location">
+                        {{ taskerProfile.tasker.metadata.country.name }} >
+                        {{ taskerProfile.tasker.metadata.city }}
+                    </div>
+                </div>
+                <hr />
+                <div class=" tasker-info">
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <h5>Availability</h5>
+                            <span>{{ taskerProfile.tasker.metadata.availability }}</span>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <h5>Experience</h5>
+                            <span>{{ taskerProfile.tasker.metadata.experience }} years of experience</span>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <h5>Rate Per Hour</h5>
+                            <span>{{ taskerProfile.tasker.metadata.fee.value }} {{ taskerProfile.tasker.metadata.fee.currency.name }} / Hour</span>
+                        </div>
+                    </div>
+                </div>
+                <button ng-hide="taskerProfile.isMyProfile()" ng-click="taskerProfile.invite()"
+                        class="btn btn-primary">
+                    <i class="fa fa-envelope"></i> Invite To Apply
+                </button>
+                <button ng-show="taskerProfile.isMyProfile()" ui-sref="editProfile"
+                        class="btn btn-primary"><i class="fa fa-edit"></i> Edit
+                </button>
+            </div>
+        </div>
+    </div>
+    <div ng-show="taskerProfile.taskerFound" class="container">
+        <section class="item-section">
+            <h3 class="title-section">Overview</h3>
+            <p>
+                {{ taskerProfile.tasker.metadata.overview }}
+            </p>
+        </section>
+        <section class="item-section">
+            <h3 class="title-section">Previous Jobs</h3>
+            <tf-empty tf-message="'This tasker has no previous job registered'" tf-show="taskerProfile.showEmpty"></tf-empty>
+            <div class="item-jobs-prev" ng-repeat="prevJob in taskerProfile.tasker.metadata.previousJobs">
+                <h4 class="item-jobs-prev-title">{{ prevJob.name }}</h4>
+                <div class="item-jobs-prev-time"><tf-date tf-date-expression="prevJob.startDate"></tf-date> - <tf-date tf-date-expression="prevJob.finishDate"></tf-date></div>
+                <p class="item-jobs-prev-desc">{{ prevJob.description }}</p>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+.post-job {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .post-job-steps {
+        margin: 0 0 15px;
+        padding: 0;
+        list-style: none;
+        li {
+            background-color: #eeeeee;
+            margin-bottom: 1px;
+            line-height: 40px;
+            max-height: 40px;
+            padding-left: 20px;
+            font-weight: @font-weight-medium;
+            cursor: pointer;
+        }
+        .active {
+            color: @base-color;
+        }
+    }
+    .post-job-title {
+        border-bottom: 1px solid #aaa;
+        margin-bottom: 40px;
+        padding-bottom: 10px;
+        .text-uppercase;
+        .fa {
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        span {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .post-job-subtitle {
+            color: #aaa;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .post-job {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .post-job-steps {
+           margin-bottom: 25px;
+            width: 100%;
+            background-color: #eee;
+            display: table;
+            li {
+                display: table-cell;
+                text-align: center;
+                vertical-align: top;
+                padding: 10px !important;
+                line-height: 20px;
+                height: auto;
+                position: relative;
+                font-size: 12px;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: #fff;
+                    height: 100%;
+                    width: 1px;
+                    display: block;
+                }
+            }
+            .active {
+                color:@base-color;
+                &:before {
+                    content: "";
+                    border-top: 8px solid #eaeaea;
+                    border-right: 8px solid transparent;
+                    border-left: 8px solid transparent;
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    bottom: -8px;
+                    left: 50%;
+                    margin-left: -8px;
+                }
+            }
+        }
+        .post-job-title {
+            margin-bottom: 20px;
+        }
+    }
+}

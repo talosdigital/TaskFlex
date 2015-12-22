@@ -1,0 +1,190 @@
+<div class="post-job">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <ul class="post-job-steps clearfix">
+                    <li ng-repeat="step in postJob.steps" ng-class="{'active': step.key == postJob.steps[postJob.currentStep].key }" ng-click="postJob.goToStep($index)">
+                        <span>{{ step.name }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <tf-alert tf-content="postJob.alert" ng-show="postJob.alert"></tf-alert>
+                <div class="page-header">
+                    <h2 class="page-title">Job
+                        <span class="page-sub-title"><i class="fa fa-angle-right"></i>
+                            {{ postJob.steps[postJob.currentStep].name }}
+                        </span>
+                    </h2>
+                </div>
+                <form name="postJob.steps[0].form" class="form-horizontal" ng-show="postJob.currentStep == 0" novalidate>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[0].form.$submitted || postJob.steps[0].form.name.$touched) && postJob.steps[0].form.name.$invalid }">
+                        <label class="col-sm-3 col-md-3">Job Title <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" name="name" ng-model="postJob.newJob.name" required />
+                            <span class="text-danger">The job name is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Private</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="checkbox" ng-model="postJob.newJob.invitationOnly" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Profession</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="postJob.newJob.metadata.profession" />
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[0].form.$submitted && !postJob.validCategory) }">
+                        <label class="col-sm-3 col-md-3">Category <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-dropdown tf-items="postJob.categories" tf-head-text="postJob.newJob.metadata.category.name" tf-head-icon="postJob.newJob.metadata.category.image" tf-click-item="postJob.categoryItemClicked" tf-item-text="postJob.categoryItemText" tf-show-check=postJob.categoryShowCheck></tf-dropdown>
+                            <span class="text-danger">The selected category is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[0].form.$submitted || postJob.steps[0].form.email.$touched) && postJob.steps[0].form.email.$invalid }">
+                        <label class="col-sm-3 col-md-3">Contact Email <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="email" class="form-control" name="email" ng-model="postJob.owner.email" required />
+                            <span class="text-danger">Email is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="additionalEmail in postJob.owner.additionalEmails track by $index"
+                         ng-class="{'has-error': (postJob.steps[0].form.$submitted || postJob.steps[0].form['additionalEmail' + $index].$touched) && postJob.steps[0].form['additionalEmail' + $index].$invalid }">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-sm-9 col-md-9">
+                            <div class="input-group">
+                                <input type="email" name="{{ 'additionalEmail' + $index }}" class="form-control" ng-model="postJob.owner.additionalEmails[$index]" required />
+                                <span class="input-group-addon hover-danger" ng-click="postJob.removeEmail($index)">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                            <span class="text-danger">This additional contact email is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-sm-9 col-md-9">
+                            <a ng-click="postJob.owner.additionalEmails.push('')"><i class="fa fa-plus"></i> Add Email</a>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[0].form.$submitted || postJob.steps[0].form.description.$touched) && postJob.steps[0].form.description.$invalid }">
+                        <label class="col-sm-3 col-md-3">Description <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <textarea class="form-control" rows="5" name="description" ng-model="postJob.newJob.description" required></textarea>
+                            <span class="text-danger">Description is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" ng-click="postJob.goToStep(postJob.currentStep + 1)">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+                <form name="postJob.steps[1].form" class="form-horizontal" ng-show="postJob.currentStep == 1" novalidate>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3">Country</label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-dropdown tf-items="postJob.countries" tf-head-text="postJob.newJob.metadata.country.name" tf-click-item="postJob.selectCountry" tf-item-text="postJob.countryItemText" tf-show-check=postJob.countryShowCheck></tf-dropdown>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3">City</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="postJob.newJob.metadata.city" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3">Phone Number</label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-md-3">
+                                    <input type="text" class="form-control" ng-model="postJob.owner.callingCode" />
+                                </div>
+                                <div class="col-xs-8 col-sm-9 col-md-9">
+                                    <input type="text" class="form-control" ng-model="postJob.owner.phone" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3">Street Address</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="postJob.newJob.metadata.address" />
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-primary" ng-click="postJob.goToStep(postJob.currentStep + 1)">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+                <form name="postJob.steps[2].form" class="form-horizontal" ng-show="postJob.currentStep == 2" novalidate>
+                    <!-- Job Details -->
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[2].form.$submitted || postJob.steps[2].form.dueDate.$touched) && postJob.steps[2].form.dueDate.$invalid }">
+                        <label class="col-sm-3 col-md-3 label-control">Hiring until <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-datepicker tf-name="'dueDate'" tf-model="postJob.newJob.dueDateModel" tf-model-string="postJob.newJob.dueDate" tf-min-date="postJob.today" tf-max-date="postJob.newJob.startDateModel" tf-required="true"></tf-datepicker>
+                            <span class="text-danger">Please specify a valid date when you are no
+                                                      longer hiring Taskers.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Period <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6" ng-class="{'has-error': (postJob.steps[2].form.$submitted || postJob.steps[2].form.startDate.$touched) && postJob.steps[2].form.startDate.$invalid }">
+                                    <tf-datepicker tf-name="'startDate'" tf-model="postJob.newJob.startDateModel" tf-model-string="postJob.newJob.startDate" tf-min-date="postJob.newJob.dueDateModel" tf-max-date="postJob.newJob.finishDateModel" tf-required="true"></tf-datepicker>
+                                    <span class="text-danger">Start date is invalid.</span>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6" ng-class="{'has-error': (postJob.steps[2].form.$submitted || postJob.steps[2].form.finishDate.$touched) && postJob.steps[2].form.finishDate.$invalid }">
+                                    <tf-datepicker tf-name="'finishDate'" tf-model="postJob.newJob.finishDateModel" tf-model-string="postJob.newJob.finishDate" tf-min-date="postJob.newJob.startDateModel" tf-required="true"></tf-datepicker>
+                                    <span class="text-danger">Finish date is invalid.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Hours Per Day</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="postJob.newJob.metadata.hours" />
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[2].form.$submitted || postJob.steps[2].form.paymentValue.$touched) && postJob.steps[2].form.paymentValue.$invalid }">
+                        <label class="col-sm-3 col-md-3 label-control">Rate Per Hour</label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="input-group">
+                                <span class="input-group-addon currency-addon">
+                                    {{ postJob.newJob.metadata.payment.currency.name }}
+                                </span>
+                                <input type="number" name="paymentValue" min="0" class="form-control" tf-parse-to-number ng-model="postJob.newJob.metadata.payment.value" />
+                            </div>
+                            <span class="text-danger">Please specify a positive value of payment.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': (postJob.steps[2].form.$submitted || postJob.steps[2].form.hires.$touched) && postJob.steps[2].form.hires.$invalid }">
+                        <label class="col-sm-3 col-md-3 label-control">Number of Hires </label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="number" name="hires" min="1" class="form-control" tf-parse-to-number ng-model="postJob.newJob.metadata.hires" />
+                            <span class="text-danger">Please use a positive number of required Taskers.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Equipment Needed</label>
+                        <div class="col-sm-9 col-md-9 ">
+                            <input type="text" class="form-control" ng-model="postJob.newJob.metadata.equipment" />
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button ng-hide="postJob.editing" class="btn btn-primary" ng-click="postJob.goToStep(postJob.currentStep + 1)">
+                            Submit <i class="fa fa-check"></i>
+                        </button>
+                        <button ng-show="postJob.editing" class="btn btn-primary" ng-click="postJob.goToStep(postJob.currentStep + 1)">
+                            Edit <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

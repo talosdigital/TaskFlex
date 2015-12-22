@@ -1,0 +1,55 @@
+<div class="sign-up">
+    <h2 ng-show="signUp.posting" class="sign-up-hire-title">
+        Sign Up to post your job
+    </h2>
+    <h2 ng-show="signUp.hiring" class="sign-up-hire-title">
+        Sign Up to hire {{ signUp.hiring.firstName }} {{ signUp.hiring.lastName }}
+    </h2>
+    <div class="container">
+        <tf-alert tf-content="signUp.alert" ng-show="signUp.alert"></tf-alert>
+        <button ng-click="signUp.facebook()" class="btn btn-facebook btn-lg btn-block"> <i class="fa fa-facebook"></i>
+            Sign up with Facebook
+        </button>
+        <div class="text-signup"><span>Or sign up with your <a href="">Email</a></span></div>
+        <form name="signUpForm" ng-submit="signUp.submit(signUpForm.$valid)" novalidate>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : signUpForm.firstName.$invalid && signUp.submitted }">
+                <input type="text" name="firstName" class="form-control" placeholder="First Name"
+                       ng-model="signUp.user.firstName" required />
+                <span class="text-danger">First name is invalid.</span>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : signUpForm.lastName.$invalid && signUp.submitted }">
+                <input type="text" name="lastName" class="form-control" placeholder="Last Name"
+                       ng-model="signUp.user.lastName" required />
+                <span class="text-danger">Last name is invalid.</span>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : signUpForm.email.$invalid && signUp.submitted }">
+                <input type="email" name="email" class="form-control" placeholder="Email Address"
+                       ng-model="signUp.user.email" required />
+                <span class="text-danger">Email is invalid.</span>
+            </div>
+            <div class="form-group"
+                 ng-class="{ 'has-error' : signUpForm.password.$invalid && signUp.submitted }">
+                <div class="input-group">
+                    <input type="{{ signUp.passwordInputType }}" name="password"
+                           class="form-control" placeholder="Password"
+                           ng-model="signUp.user.password" required />
+                    <span class="input-group-addon" ng-click="signUp.togglePasswordVisibility()">
+                        <i class="fa fa-eye" ng-show="signUp.passwordInputType == 'password'"></i>
+                        <i class="fa fa-eye-slash" ng-show="signUp.passwordInputType == 'text'"></i>
+                    </span>
+                </div>
+                <span class="text-danger">Password is invalid.</span>
+            </div>
+            <p> By Signing up, I aggree to Task Flex's
+                <a href=""> Terms of Service Privacy Policy</a> and
+                <a href=""> Terms of Service</a>.
+            </p>
+            <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+        </form>
+        <hr />
+        <p>Already a memeber? <a ng-click="signUp.goToLogin()">Log in</a></p>
+    </div>
+</div>

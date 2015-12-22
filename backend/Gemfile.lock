@@ -1,0 +1,255 @@
+GIT
+  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDCoreGem.git
+  revision: 08fab3a9ad5ee2eaefd4313822d0a97a9b134f7e
+  branch: develop
+  specs:
+    td-core (0.2.0)
+      activesupport (= 4.2.3)
+
+GIT
+  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDJobsGem.git
+  revision: 2065d840adb63513bd818d71d2e6aa2c388d8de7
+  branch: develop
+  specs:
+    td-jobs (1.0.0)
+      activesupport (= 4.2.3)
+      httparty (= 0.13.5)
+
+GIT
+  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDUserGem.git
+  revision: 27e2fb2a771e58b5aa14c22fecd7daa4f39b4232
+  branch: develop
+  specs:
+    td-users (1.1.0)
+      httparty (= 0.13.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    actionmailer (4.2.3)
+      actionpack (= 4.2.3)
+      actionview (= 4.2.3)
+      activejob (= 4.2.3)
+      mail (~> 2.5, >= 2.5.4)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+    actionpack (4.2.3)
+      actionview (= 4.2.3)
+      activesupport (= 4.2.3)
+      rack (~> 1.6)
+      rack-test (~> 0.6.2)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionview (4.2.3)
+      activesupport (= 4.2.3)
+      builder (~> 3.1)
+      erubis (~> 2.7.0)
+      rails-dom-testing (~> 1.0, >= 1.0.5)
+      rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    activejob (4.2.3)
+      activesupport (= 4.2.3)
+      globalid (>= 0.3.0)
+    activemodel (4.2.3)
+      activesupport (= 4.2.3)
+      builder (~> 3.1)
+    activerecord (4.2.3)
+      activemodel (= 4.2.3)
+      activesupport (= 4.2.3)
+      arel (~> 6.0)
+    activesupport (4.2.3)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    addressable (2.4.0)
+    arel (6.0.3)
+    ast (2.2.0)
+    astrolabe (1.3.1)
+      parser (~> 2.2)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    builder (3.2.2)
+    ci_reporter (2.0.0)
+      builder (>= 2.1.2)
+    ci_reporter_rspec (1.0.0)
+      ci_reporter (~> 2.0)
+      rspec (>= 2.14, < 4)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    concurrent-ruby (1.0.0)
+    connection_pool (2.2.0)
+    css_parser (1.3.7)
+      addressable
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    diff-lcs (1.2.5)
+    docile (1.1.5)
+    equalizer (0.0.11)
+    erubis (2.7.0)
+    faker (1.6.1)
+      i18n (~> 0.5)
+    globalid (0.3.6)
+      activesupport (>= 4.1.0)
+    grape (0.14.0)
+      activesupport
+      builder
+      hashie (>= 2.1.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    hashie (3.4.3)
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    i18n (0.7.0)
+    ice_nine (0.11.1)
+    json (1.8.3)
+    loofah (2.0.3)
+      nokogiri (>= 1.5.9)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.99)
+    mini_portile2 (2.0.0)
+    minitest (5.8.3)
+    multi_json (1.11.2)
+    multi_xml (0.5.5)
+    nokogiri (1.6.7.1)
+      mini_portile2 (~> 2.0.0.rc2)
+    parser (2.2.3.0)
+      ast (>= 1.1, < 3.0)
+    powerpack (0.1.1)
+    puma (2.15.3)
+    rack (1.6.4)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-cors (0.4.0)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rails (4.2.3)
+      actionmailer (= 4.2.3)
+      actionpack (= 4.2.3)
+      actionview (= 4.2.3)
+      activejob (= 4.2.3)
+      activemodel (= 4.2.3)
+      activerecord (= 4.2.3)
+      activesupport (= 4.2.3)
+      bundler (>= 1.3.0, < 2.0)
+      railties (= 4.2.3)
+      sprockets-rails
+    rails-api (0.4.0)
+      actionpack (>= 3.2.11)
+      railties (>= 3.2.11)
+    rails-deprecated_sanitizer (1.0.3)
+      activesupport (>= 4.2.0.alpha)
+    rails-dom-testing (1.0.7)
+      activesupport (>= 4.2.0.beta, < 5.0)
+      nokogiri (~> 1.6.0)
+      rails-deprecated_sanitizer (>= 1.0.1)
+    rails-html-sanitizer (1.0.2)
+      loofah (~> 2.0)
+    railties (4.2.3)
+      actionpack (= 4.2.3)
+      activesupport (= 4.2.3)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+    rainbow (2.0.0)
+    rake (10.4.2)
+    redis (3.2.2)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
+    roadie (3.1.1)
+      css_parser (~> 1.3.4)
+      nokogiri (>= 1.5.0, < 1.7.0)
+    roadie-rails (1.1.0)
+      railties (>= 3.0, < 4.3)
+      roadie (~> 3.1)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-rails (3.4.0)
+      actionpack (>= 3.0, < 4.3)
+      activesupport (>= 3.0, < 4.3)
+      railties (>= 3.0, < 4.3)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    rubocop (0.35.1)
+      astrolabe (~> 1.3)
+      parser (>= 2.2.3.0, < 3.0)
+      powerpack (~> 0.1)
+      rainbow (>= 1.99.1, < 3.0)
+      ruby-progressbar (~> 1.7)
+      tins (<= 1.6.0)
+    ruby-progressbar (1.7.5)
+    sidekiq (4.0.1)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      json (~> 1.0)
+      redis (~> 3.2, >= 3.2.1)
+    simplecov (0.11.1)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
+    spring (1.6.0)
+    sprockets (3.5.2)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (3.0.0)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
+    thor (0.19.1)
+    thread_safe (0.3.5)
+    tins (1.6.0)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+    virtus (1.0.5)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0, >= 0.0.3)
+      equalizer (~> 0.0, >= 0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ci_reporter_rspec
+  faker
+  grape
+  puma
+  rack-cors
+  rails (= 4.2.3)
+  rails-api
+  redis-namespace
+  roadie
+  roadie-rails
+  rspec-rails
+  rubocop
+  sidekiq
+  simplecov
+  spring
+  td-core!
+  td-jobs!
+  td-users!
+
+BUNDLED WITH
+   1.10.6

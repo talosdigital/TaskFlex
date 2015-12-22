@@ -1,0 +1,151 @@
+.form-control {
+    border-radius: 0px !important;
+    border: 2px solid #b5b5b5;
+    height: 40px;
+    &:focus {
+        border-color: @base-color;
+        box-shadow: none;
+    }
+}
+
+.input-sm {
+    height: 35px;
+}
+
+.input-lg {
+    height: 45px;
+}
+
+.text-danger {
+    display: none;
+}
+.has-error .text-danger {
+    display: block;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.form-group.has-error .text-danger {}
+
+label {
+    font-weight: normal;
+    .required-mark {
+        color: #de253a;
+    }
+}
+
+.form-horizontal > .form-group {
+    margin-bottom: 30px;
+}
+
+.form-horizontal > .form-group > label {
+    line-height: 39px;
+}
+
+.input-group-addon {
+    border-radius: 0;
+    border-width: 2px;
+    border-color: #b5b5b5;
+    background-color: #fff;
+}
+
+@media screen and (max-width:768px) {
+    .form-horizontal > .form-group {
+        margin-bottom: 20px;
+    }
+    .form-horizontal > .form-group > label {
+        line-height: 20px;
+    }
+}
+
+.btn-dropdown {
+    display: block;
+    width: 100%;
+    border: none;
+    text-align: left;
+    position: relative;
+    background: none !important;
+    border: 2px solid #b5b5b5;
+    border-radius: 0 !important;
+    padding: 6px 12px;
+    text-transform: capitalize;
+    &:focus {
+        border-color: @base-color;
+    }
+    .fa {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 18px;
+    }
+    &.btn-dropdown-hasicon {
+        padding-left: 40px;
+        .cat-icon {
+            position: absolute;
+            left: 4px;
+            top: 3px;
+        }
+    }
+}
+
+.custom-dropdown {
+    width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
+    border-radius: 0 !important;
+    li {
+        border-radius: 0 !important;
+        &:hover a,
+        &.active a,
+        {
+            background-color: @base-color !important;
+            color: #fff;
+        }
+        a {
+            padding-left: 25px;
+            position: relative;
+            i {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 25px;
+                width: 25px;
+                text-align: center;
+                line-height: 26px;
+            }
+        }
+    }
+}
+
+.text-danger {
+    color: #de253a
+}
+
+.has-error .form-control {
+    border-color: #de253a;
+}
+
+.has-error .input-group-addon {
+    color: #de253a;
+    border-color: #de253a
+}
+
+.input-group.active .input-group-addon .fa {
+    color: @base-color;
+}
+
+.currency-addon {
+    background-color: #ddd;
+}
+
+.hover-danger:hover {
+    color: #de253a;
+}

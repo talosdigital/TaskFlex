@@ -1,0 +1,66 @@
+<div class="tasker-reply">
+    <div class="container">
+        <tf-alert tf-content="taskerReply.alert" ng-show="taskerReply.alert"></tf-alert>
+        <div ng-show="taskerReply.offerFound || taskerReply.invitationFound">
+            <div class="tasker-reply-info">
+                <div class="item-title">
+                    {{ taskerReply.job.name }}
+                </div>
+                <div class="item-desc">
+                    {{ taskerReply.job.metadata.profession }}
+                </div>
+                <div class="item-cat">
+                    <span class="{{ taskerReply.job.metadata.category.image }}"></span> {{ taskerReply.job.metadata.category.name }}
+                </div>
+            </div>
+            <div class="tasker-reply-box clearfix">
+                <div class="item-reply item-owner pull-left" ng-show="taskerReply.invitation">
+                    <div class="item-reply-image">
+                        <img ng-src="{{ taskerReply.owner.metadata.picture }}">
+                    </div>
+                    <div class="item-reply-body">
+                        {{ taskerReply.invitation.description }}
+                    </div>
+                </div>
+
+                <div class="item-reply" ng-class="{ 'item-owner pull-left': !taskerReply.isTaskerRecord(record), 'item-tasker pull-right': taskerReply.isTaskerRecord(record) }" ng-repeat="record in taskerReply.records">
+                    <div class="item-reply-image">
+                        <img ng-src="{{ taskerReply.tasker.metadata.picture }}" ng-show="taskerReply.isTaskerRecord(record)">
+                        <img ng-src="{{ taskerReply.owner.metadata.picture }}" ng-hide="taskerReply.isTaskerRecord(record)">
+                    </div>
+                    <div class="item-reply-body">
+                        {{ record.reason }}
+                        <div class="new-price" ng-show="taskerReply.isTaskerRecord(record)">
+                            <span class="new-price-title">Rate per hour: </span>
+                            <span class="new-price-value">{{ record.metadata.payment.value }} {{ record.metadata.payment.currency.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form name="replyForm" ng-show="taskerReply.canReply()" novalidate>
+                <div class="tasker-reply-text-box">
+                    <div class="change-price">
+                        <div class="form-group" ng-class="{ 'has-error': (replyForm.$submitted || replyForm.payment.$touched) && replyForm.payment.$invalid }">
+                            <h5>Rate per hour</h5>
+                            <div class="input-group">
+                                <span class="input-group-addon currency-addon">
+                                    {{ taskerReply.offer.metadata.payment.currency.name }}
+                                </span>
+                             <input name="payment" type="number" min="0" class="form-control" tf-parse-to-number ng-model="taskerReply.offer.metadata.payment.value" ng-disabled="taskerReply.invitationFound && taskerReply.accepting" required />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': (replyForm.$submitted || replyForm.reason.$touched) && replyForm.reason.$invalid }">
+                        <textarea name="reason" ng-model="taskerReply.reason" class="form-control" rows="5" placeholder="Type your message ..." required></textarea>
+                        <span class="text-danger">Please provide a drescription to reply the offer.</span>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button ng-click="taskerReply.cancel()" class="btn btn-link">Cancel</button>
+                    <button ng-show="taskerReply.offerFound" ng-click="taskerReply.reply(replyForm.$valid)" class="btn btn-primary">Reply</button>
+                    <button ng-hide="taskerReply.offerFound" ng-click="taskerReply.makeAnOffer(replyForm.$valid)" class="btn btn-primary">{{ taskerReply.accepting ? 'Accept' : 'Reply' }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

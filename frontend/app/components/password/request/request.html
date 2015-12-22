@@ -1,0 +1,18 @@
+<div class="request-password">
+    <div class="request-password-box">
+        <div class="page-header">
+            <h2 class="page-title">Password recovery</h2>
+        </div>
+        <tf-alert tf-content="request.alert" ng-show="request.alert"></tf-alert>
+        <form name="requestPasswordForm" ng-submit="request.submit(requestPasswordForm.$valid)"
+              novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : requestPasswordForm.email.$invalid && request.submitted }">
+                 <input type="email" name="email" class="form-control" placeholder="Email address" ng-model="request.email" required />
+                 <span class="text-danger">Email is invalid.</span>
+            </div>
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-envelope"></i> Send recovery link</button>
+            </div>
+        </form>
+    </div>
+</div>

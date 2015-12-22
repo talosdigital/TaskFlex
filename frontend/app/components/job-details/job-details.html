@@ -1,0 +1,79 @@
+<div class="job-details">
+    <div class="job-details-header">
+        <div class="container">
+            <tf-alert tf-content="jobDetails.alert" ng-show="jobDetails.alert"></tf-alert>
+            <div ng-show="jobDetails.job">
+                <div class="first-line clearfix">
+                    <div class="pull-left">
+                        <h1 class="item-title">{{ jobDetails.job.name }}</h1>
+                        <h2 class="item-tagline">{{ jobDetails.job.metadata.profession }}</h2>
+                        <h3 class="item-cat"><i class="{{ jobDetails.job.metadata.category.image }}"></i> {{ jobDetails.job.metadata.category.name }}</h3>
+                    </div>
+                    <div class="pull-right">
+                        <button ng-click="jobDetails.edit()" ng-show="jobDetails.isMyJob" class="btn btn-primary">
+                            <i class="fa fa-edit"></i> Edit
+                        </button>
+                        <button ng-click="jobDetails.apply()" ng-hide="jobDetails.alreadyApplied" class="btn btn-primary">
+                            <i class="fa fa-check"></i> Apply
+                        </button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row job-info">
+                    <div class="col-xs-4 col-sm-4 col-md-3">
+                        <h5>Start Date</h5>
+                        <span><tf-date tf-date-expression="jobDetails.job.startDate"></tf-date></span>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-3">
+                        <h5>End Date</h5>
+                        <span><tf-date tf-date-expression="jobDetails.job.finishDate"></tf-date></span>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-3">
+                        <h5>Budget</h5>
+                        <span>{{ jobDetails.job.metadata.payment.value }} {{ jobDetails.job.metadata.payment.currency.name }} / Hour</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" ng-show="jobDetails.job">
+        <section class="item-section">
+            <h3 class="title-section">Overview</h3>
+            <p>
+                {{ jobDetails.job.description }}
+            </p>
+        </section>
+        <section class="item-section">
+            <h3 class="title-section">Job Details</h3>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Location</h4>
+                <p class="item-sub-section-desc">{{ jobDetails.job.metadata.country.name }} > {{ jobDetails.job.metadata.city }}</p>
+            </div>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Hours Per Day</h4>
+                <p class="item-sub-section-desc">{{ jobDetails.job.metadata.hours }}</p>
+            </div>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Number of Hires</h4>
+                <p class="item-sub-section-desc">{{ jobDetails.job.metadata.hires }} Taskers</p>
+            </div>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Equipement Needed</h4>
+                <p class="item-sub-section-desc">
+                    {{ jobDetails.job.metadata.equipment}}
+                </p>
+            </div>
+        </section>
+        <section class="item-section">
+            <h3 class="title-section">Contact</h3>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Email</h4>
+                <p class="item-sub-section-desc">{{ jobDetails.job.metadata.contact.email }}</a></p>
+            </div>
+            <div class="item-sub-section">
+                <h4 class="item-sub-section-title">Phone number</h4>
+                <p class="item-sub-section-desc">{{ jobDetails.job.metadata.contact.callingCode }} {{ jobDetails.job.metadata.contact.phone}}</p>
+            </div>
+        </section>
+    </div>
+</div>

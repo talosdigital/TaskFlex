@@ -1,0 +1,36 @@
+/*[invite-tasker]*/
+
+.invite-tasker {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 600px;
+    max-width: 100%;
+    margin:0 auto;
+    .form-horizontal {}
+    .rounded-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        margin-right: 30px;
+    }
+    .tasker-title {
+        color: @base-color;
+        margin-top: 2px;
+        margin-bottom: 7px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .invite-tasker {
+        .rounded-image {
+            margin: 0;
+        }
+        .tasker-info {
+            .pull-left,
+            .pull-right {
+                float: none !important;
+                text-align: center;
+            }
+        }
+    }
+}

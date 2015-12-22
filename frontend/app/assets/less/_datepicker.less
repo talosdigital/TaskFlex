@@ -1,0 +1,44 @@
+.ng-isolate-scope {
+    *:focus {
+        outline: none !important;
+    }
+    .btn:focus {
+        box-shadow: none !important;
+    }
+    li:first-child {
+        .btn {
+            background: none !important;
+            color: #666 !important;
+            border-radius: 0 !important;
+            &.active {
+                background: @base-color !important;
+                color: #fff !important;
+                .text-info {
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+    li:last-child {
+        .btn {
+            display: none;
+        }
+    }
+    .glyphicon:before {
+        display: inline-block;
+        font: normal normal normal 18px/1 FontAwesome !important;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .glyphicon-chevron-right:before {
+        content: "\f105" !important;
+    }
+    .glyphicon-chevron-left:before {
+        content: "\f104" !important;
+    }
+    tr td {
+        border: 1px solid #ddd;
+    }
+}

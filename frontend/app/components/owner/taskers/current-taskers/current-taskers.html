@@ -1,0 +1,35 @@
+<div class="current-taskers">
+    <div class="container">
+        <div class="page-header clearfix">
+            <div class="pull-left">
+                <h2 class="page-title">
+                    Current Taskers
+                    <span class="page-sub-title" ng-show="currentTaskers.status != ''">
+                        <i class="fa fa-angle-right"></i>{{ currentTaskers.status }}
+                    </span>
+                </h2>
+            </div>
+            <div class="pull-right">
+                <button ng-click="currentTaskers.changeStatus('accepted')" class="btn btn-xs btn-success" ng-class="{ active: (currentTaskers.isActiveStatus('ACCEPTED')) }">Accepted <i class="fa fa-check-circle"></i></button>
+                <button ng-click="currentTaskers.changeStatus('pending')" class="btn btn-xs btn-warning" ng-class="{ active: (currentTaskers.isActiveStatus('PENDING')) }">Pending <i class="fa fa fa-clock-o"></i></button>
+                <button ng-click="currentTaskers.changeStatus('rejected')" class="btn btn-xs btn-danger" ng-class="{ active: (currentTaskers.isActiveStatus('REJECTED')) }">Rejected <i class="fa fa-times-circle"></i></button>
+            </div>
+        </div>
+        <tf-empty tf-message="'No ' + currentTaskers.status + ' taskers were found'" tf-show="currentTaskers.showEmpty"></tf-empty>
+        <div class="taskers-item clearfix" ng-repeat="item in currentTaskers.items">
+            <img ng-src="{{ item.tasker.metadata.picture }}" class="item-img">
+            <h2 class="item-title">{{ item.job.name }}</h2>
+            <h3 class="item-name">{{ item.tasker.firstName }} {{ item.tasker.lastName }}</h3>
+            <div class="item-desc">{{ item.tasker.metadata.profession }}</div>
+            <div class="item-price">{{ item.job.metadata.payment.value }} {{ item.job.metadata.payment.currency.name }} / Hour</div>
+            <div class="item-date">
+                <span class="item-date-title">Start Date:</span>
+                <span class="item-date-value"><tf-date tf-date-expression="item.job.startDate"></tf-date></span>
+                <span class="item-date-title">End Date:</span>
+                <span class="item-date-value"><tf-date tf-date-expression="item.job.finishDate"></tf-date></span>
+            </div>
+            <button ng-click="currentTaskers.viewProfile(item.tasker.id)" class="btn btn-block btn-sm btn-primary">View Profile</button>
+        </div>
+        <tf-paginator tf-current="currentTaskers.currentPage" tf-max-page="currentTaskers.pages" tf-on-change="currentTaskers.onPageChange"></tf-paginator>
+    </div>
+</div>

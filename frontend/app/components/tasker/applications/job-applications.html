@@ -1,0 +1,42 @@
+<div class="job-applications">
+    <div class="container">
+        <tf-alert tf-content="applications.alert" ng-show="applications.alert"></tf-alert>
+        <div class="page-header">
+            <h2 class="page-title">Job Applications</h2>
+        </div>
+        <tf-empty tf-message="'You don\'t have applications to any job in this moment'" tf-show="applications.showEmpty"></tf-empty>
+        <div class="jobs-item" ng-repeat="offer in applications.offers">
+            <h3 class="item-title text-color-base">{{ offer.job.name }}</h3>
+            <div class="item-price">{{ offer.job.metadata.payment.value }} {{ offer.job.metadata.payment.currency.name }} / Hour</div>
+            <p class="item-desc">
+                {{ offer.job.description }}
+            </p>
+            <div class="item-status">
+                <span class="item-status-title">Status of your request:</span>
+                <span ng-show="applications.offerStatus(offer) === 'ACCEPTED'" class="text-status-apccepted"><i class="fa fa-check-circle"></i> Accepted</span>
+                <span ng-show="applications.offerStatus(offer) === 'REJECTED'" class="text-status-rejected"><i class="fa fa-times-circle"></i> Rejected</span>
+                <span ng-show="applications.offerStatus(offer) === 'PENDING'" class="text-status-pending"><i class="fa fa fa-clock-o"></i> Pending</span>
+                <span ng-show="applications.offerStatus(offer) === 'RETURNED'" class="text-status-pending"><i class="fa fa fa-clock-o"></i> Returned</span>
+                <span ng-show="applications.offerStatus(offer) === 'WITHDRAWN'" class="text-status-rejected"><i class="fa fa fa-times-circle"></i> Withdrawn</span>
+            </div>
+            <div class="item-email">
+                <div class="item-mail-name">
+                    <a href="">{{ offer.owner.firstName }} {{ offer.owner.lastName }}</a>
+                </div>
+                <div class="item-mail-value">
+                    {{ offer.owner.email }}
+                </div>
+            </div>
+            <div ng-show="applications.withdrawing != offer.id">
+                <button ng-click="applications.viewDetails(offer.id)" class="btn btn-primary btn-sm btn-block">View Details</button>
+                <button ng-show="applications.isWithdrawable(offer.status)" ng-click="applications.toggleWithdrawing(offer.id)" class="btn btn-default btn-sm btn-block">Withdraw offer</button>
+                <button ng-show="applications.isSendable(offer.status)" ng-click="applications.sendOffer(offer.id)" class="btn btn-default btn-sm btn-block">Send offer</button>
+            </div>
+            <div ng-show="applications.withdrawing == offer.id">
+                <button ng-click="applications.withdrawOffer(offer.id)" class="btn btn-primary btn-sm btn-block">Confirm</button>
+                <button ng-click="applications.toggleWithdrawing(-1)" class="btn btn-default btn-outline btn-sm btn-block">Cancel</button>
+            </div>
+        </div>
+        <tf-paginator tf-current="applications.currentPage" tf-max-page="applications.pages" tf-on-change="applications.onPageChange"></tf-paginator>
+    </div>
+</div>

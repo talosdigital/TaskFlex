@@ -1,0 +1,8 @@
+<img ng-src="{{ tasker.metadata.picture }}" class="item-img" />
+<h2 class="item-title">{{ tasker.firstName }} {{ tasker.lastName }}</h2>
+<h3 class="item-subtitle">{{ tasker.metadata.profession }}</h3>
+<div class="item-info">{{ tasker.metadata.city }} <span class="text-muted">- {{ tasker.metadata.experience }} years of experience</span></div>
+<div class="item-price">{{ tasker.metadata.fee.value }} {{ tasker.metadata.fee.currency.name }} / Hour</div>
+<hm-read class="item-desc" hmtext="{{ tasker.metadata.overview }}"
+         hmlimit="300" hm-more-text="more..." hm-less-text="read less"></hm-read>
+<button type="button" class="btn btn-primary btn-block btn-sm" ui-sref="taskerProfile( { id: tasker.id } )">View profile</button>

@@ -1,0 +1,231 @@
+<div class="invite-tasker">
+    <div class="container">
+       <tf-alert tf-content="invite.alert" ng-show="invite.alert"></tf-alert>
+       <div ng-show="invite.taskerFound">
+            <div class="tasker-info">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <img ng-src="{{ invite.tasker.metadata.picture }}" class="rounded-image">
+                    </div>
+                    <div class="pull-left">
+                        <h2 class="tasker-title">
+                            {{ invite.tasker.firstName }} {{ invite.tasker.lastName }}
+                        </h2>
+                        <h3 class="tasker-desc">{{ invite.tasker.metadata.profession }}</h3>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <form name="inviteForm" ng-submit="invite.sendInvitation(inviteForm.$valid)" novalidate>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Message</label>
+                        <div class="col-sm-9 col-md-9">
+                            <textarea class="form-control" rows="8" placeholder="Type your message" ng-model="invite.invitation.description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control"></label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="invite.jobType" value="choose" checked /> Choose existing job
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" ng-model="invite.jobType" value="create" /> Create a new job
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- exsiting jobs -->
+                <div class="form-horizontal exsiting-list-job" ng-show="invite.jobType == 'choose'">
+                    <div class="form-group" ng-class="{ 'has-error': !invite.validChosenJob &&
+                                                                     invite.options[0].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Choose a job <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-dropdown tf-items="invite.jobs" tf-head-text="invite.chosenJob.name" tf-click-item="invite.jobItemClicked" tf-item-text="invite.jobItemText" tf-show-check=invite.jobShowCheck></tf-dropdown>
+                            <span class="text-danger">Please select a valid job</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Create new Job -->
+                <div class="form-horizontal create-new-job" ng-show="invite.jobType == 'create'">
+                    <div class="form-group"
+                         ng-class="{ 'has-error': inviteForm.name.$invalid &&
+                                                  invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Job Title <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" name="name" class="form-control"
+                                   ng-model="invite.newJob.name" ng-required="invite.jobType == 'create'" />
+                             <span class="text-danger">The job name is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Profession</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="invite.newJob.metadata.profession" />
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error': !invite.validCategory &&
+                                                                     invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3">Category <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-dropdown tf-items="invite.categories" tf-head-text="invite.newJob.metadata.category.name" tf-head-icon="invite.newJob.metadata.category.image" tf-click-item="invite.categoryItemClicked" tf-item-text="invite.categoryItemText" tf-show-check=invite.categoryShowCheck></tf-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error': inviteForm.email.$invalid &&
+                                                                     invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Email Address <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="email" name="email" class="form-control"
+                                   ng-model="invite.owner.email" placeholder="address@example.com"
+                                   ng-required="invite.jobType == 'create'" />
+                            <span class="text-danger">Email is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="additionalEmail in invite.owner.additionalEmails track by $index">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-sm-9 col-md-9">
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="invite.owner.additionalEmails[$index]" />
+                                <span class="input-group-addon hover-danger" ng-click="invite.removeEmail($index)">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-md-offset-3 col-sm-9 col-md-9">
+                            <a ng-click="invite.owner.additionalEmails.push('')"><i class="fa fa-plus"></i> Add Email</a>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': inviteForm.description.$invalid &&
+                                                                     invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Description <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="text-right">
+                                {{ invite.maxLength - invite.newJob.description.length }} characters left
+                            </div>
+                            <textarea class="form-control" rows="5" ng-maxlength="invite.maxLength"
+                                      ng-model="invite.newJob.description" name="description"
+                                      ng-required="invite.jobType == 'create'"></textarea>
+                            <span class="text-danger">Description is invalid.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3">Country</label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-dropdown tf-items="invite.countries" tf-head-text="invite.newJob.metadata.country.name" tf-click-item="invite.selectCountry" tf-item-text="invite.countryItemText" tf-show-check=invite.countryShowCheck></tf-dropdown>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">City</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control"
+                                   ng-model="invite.newJob.metadata.city" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Phone Number</label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-xs-4 col-sm-3 col-md-3">
+                                    <input type="text" class="form-control"
+                                           ng-model="invite.owner.callingCode" />
+                                </div>
+                                <div class="col-xs-8 col-sm-9 col-md-9">
+                                    <input type="text" class="form-control" ng-model="invite.owner.phone" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Street Address</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="invite.newJob.metadata.address" />
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': inviteForm.dueDate.$invalid &&
+                                                                    invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Hiring until <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <tf-datepicker tf-name="'dueDate'" tf-model="invite.dueDateModel" tf-model-string="invite.newJob.dueDate" tf-min-date="invite.today" tf-max-date="invite.startDateModel" tf-required="invite.jobType == 'create'"></tf-datepicker>
+                            <span class="text-danger">Please specify a valid date when you are no longer
+                                                      hiring Taskers.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Work period <span class="required-mark">*</span></label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6"
+                                     ng-class="{'has-error': inviteForm.startDate.$invalid &&
+                                                             invite.options[1].submitted }">
+                                    <tf-datepicker tf-name="'startDate'" tf-model="invite.startDateModel" tf-model-string="invite.newJob.startDate" tf-min-date="invite.dueDateModel" tf-max-date="invite.finishDateModel" tf-required="invite.jobType == 'create'"></tf-datepicker>
+                                    <span class="text-danger">Start date is invalid.</span>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6"
+                                     ng-class="{'has-error': inviteForm.finishDate.$invalid &&
+                                                             invite.options[1].submitted }">
+                                    <tf-datepicker tf-name="'finishDate'" tf-model="invite.finishDateModel" tf-model-string="invite.newJob.finishDate" tf-min-date="invite.startDateModel" tf-required="invite.jobType == 'create'"></tf-datepicker>
+                                    <span class="text-danger">Finish date is invalid.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Hours Per Day</label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="text" class="form-control" ng-model="invite.newJob.metadata.hours" />
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': inviteForm.paymentValue.$invalid &&
+                                                                    inviteForm.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Rate Per Hour</label>
+                        <div class="col-sm-9 col-md-9">
+                            <div class="input-group">
+                                <span class="input-group-addon currency-addon">
+                                    {{ invite.newJob.metadata.payment.currency.name }}
+                                </span>
+                                <input type="number" name="paymentValue" min="0" class="form-control" ng-model="invite.newJob.metadata.payment.value" />
+                            </div>
+                            <span class="text-danger">Please specify a positive value of payment.</span>
+                        </div>
+                    </div>
+                    <div class="form-group"
+                         ng-class="{'has-error': inviteForm.hires.$invalid &&
+                                                 invite.options[1].submitted }">
+                        <label class="col-sm-3 col-md-3 label-control">Required Taskers </label>
+                        <div class="col-sm-9 col-md-9">
+                            <input type="number" class="form-control" min="1" name="hires"
+                                   ng-model="invite.newJob.metadata.hires"/>
+                            <span class="text-danger">Please select a positive number of
+                                                      required Taskers.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-md-3 label-control">Equipment Needed</label>
+                        <div class="col-sm-9 col-md-9 ">
+                            <input type="text" class="form-control" ng-model="invite.newJob.metadata.equipment" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-horizontal text-right">
+                    <button type="submit" class="btn btn-link">CANCEL</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

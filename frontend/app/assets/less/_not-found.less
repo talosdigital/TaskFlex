@@ -1,0 +1,81 @@
+﻿.not-found {
+    background: red;
+    height: 100%;
+    background: url(../images/not-found.jpg) no-repeat center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+
+    .container {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .not-found-text {
+        margin-top: 100px;
+        font-size: 40px;
+        line-height: 36px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+    }
+
+    .not-found-logo {
+        margin: 0;
+        line-height: 208px;
+        font-size: 208px;
+        margin-bottom: 100px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.70);
+    }
+
+    .not-found-desc {
+        font-size: 26px;
+        margin: 0 0 30px;
+    }
+
+    .btn-notfound {
+        width: 280px;
+        height: 60px;
+        line-height: 60px;
+        padding: 0;
+        font-size: 20px;
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .not-found {
+        .container {
+            padding: 40px;
+        }
+
+        .logo {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .not-found-text {
+            margin-top: 40px;
+        }
+
+        .not-found-logo {
+            margin: 30px 0;
+            font-size: 160px;
+        }
+    }
+}
+
+@media screen and (max-width:360px) {
+    .not-found {
+        .container {
+            padding: 40px 10px;
+        }
+
+        .not-found-logo {
+            font-size: 100px;
+            margin: 0;
+        }
+    }
+}

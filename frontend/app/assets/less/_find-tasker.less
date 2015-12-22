@@ -1,0 +1,169 @@
+.find-tasker {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .pagination{
+        margin-bottom: 0;
+    }
+    .search-tasker {
+        margin-bottom: 40px;
+        position: relative;
+        .form-control {
+            padding-left: 40px;
+            &:focus {
+                border-color: @base-color;
+            }
+        }
+        .fa-search {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+          .btn {
+            background-color: #aaa;
+            &:hover {
+                background-color: #888;
+            }
+        }
+    }
+    .tasker-item {
+        position: relative;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        padding-left: 115px;
+        padding-right: 160px;
+        border-bottom: 1px solid #ddd;
+        .item-img {
+            .border-radius(@border-radius-max);
+            width: 85px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .item-title {
+            color: @base-color;
+        }
+        .item-info {
+            margin-bottom: 10px;
+        }
+        .item-desc {
+            text-align: justify;
+        }
+        .item-price {
+            width: 130px;
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-weight: @font-weight-medium;
+            color: @base-color;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            width: 130px;
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .find-tasker {
+        .search-tasker {
+            margin-bottom: 30px;
+            position: relative;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .find-tasker {
+        padding-top: 15px;
+        .search-tasker {
+            margin-bottom: 15px;
+            .form-control {
+                border-width: 1px;
+            }
+            .col-md-2 {
+                position: static;
+            }
+            .btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100px;
+                border-radius: 0;
+                border: 1px solid #aaa;
+                background-color: #aaa;
+                color: #fff;
+            }
+        }
+        .tasker-item {
+            padding-left: 0;
+            padding-right: 0;
+            .item-img {
+                top: 0;
+            }
+            .item-title {
+                padding-top: 8px;
+            }
+            .item-title,
+            .item-subtitle,
+            .item-info {
+                padding-left: 100px;
+            }
+            .item-desc {
+                margin-top: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:640px) {
+    .find-tasker {
+        .tasker-item {
+            padding-right: 0;
+            .item-img {
+                width: 90px;
+            }
+            .item-title {
+                padding-top: 0;
+            }
+            .item-title,
+            .item-subtitle,
+            .item-info {
+                margin-bottom: 5px;
+                padding-left: 110px;
+            }
+            .btn,
+            .item-price {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+            .item-price {
+                padding-left: 110px;
+                text-align: left;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .btn {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .find-tasker {
+        .tasker-item {
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.offer-replies {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .pagination {
+        margin: 20px 0 0;
+    }
+    .jobs-item {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        .item-desc {
+            text-align: justify;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media screen and (max-width:500px) {
+    .offer-replies {
+        .jobs-item {
+            .col-md-2,
+            .col-md-10 {
+                float: none;
+                width: 100%;
+            }
+
+            .btn {
+                margin-top: 10px;
+            }
+        }
+    }
+}

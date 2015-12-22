@@ -1,0 +1,9 @@
+<h3 class="item-title text-color-base">{{ job.name }}</h3>
+<h4 class="item-subtitle">{{ job.metadata.profession }}</h4>
+<div class="item-date">
+    <tf-date tf-date-expression="job.startDate"></tf-date> <span class="item-date-span">- {{ job.metadata.city }}</span>
+</div>
+<div class="item-price">{{ job.metadata.payment.value }} {{ job.metadata.payment.currency.name }} / Hour</div>
+<hm-read class="item-desc" hmtext="{{ job.description }}" hmlimit="300" hm-more-text="more..."
+         hm-less-text="read less"></hm-read>
+<button type="button" class="btn btn-primary btn-sm btn-block" ui-sref="jobDetails({ job: job.id })">View Details</button>

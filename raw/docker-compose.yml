@@ -1,0 +1,59 @@
+# This docker compose file is used by 'init.sh' script, which downloads and
+# serves TDJobs, TDUser and TaskFlex using docker. Please see the README file
+# for more details.
+
+## --- TDJobs --- ##
+tdjobs_db:
+  image: library/postgres:9.4
+  ports:
+    - "5432:5432"
+tdjobs_api:
+  build: ./TDJobs
+  ports:
+    - "3000:3000"
+  links:
+    - tdjobs_db
+
+## --- TDUsers --- ##
+tdusers_db:
+  image: library/mongo:3.0
+  command: "--smallfiles"
+  ports:
+    - "27017:27017"
+
+tdusers_api:
+  build: ./TDUser
+  ports:
+    - "9001:9001"
+  links:
+    - tdusers_db
+
+## --- TaskFlex back end --- ##
+tf_redis:
+  image: redis
+  ports:
+    - "6379"
+
+tf_sidekiq:
+  build: ./TaskFlex/backend
+  command: bundle exec sidekiq
+  links:
+    - tf_redis
+    - tdusers_api
+
+tf_api:
+  build: ./TaskFlex/backend
+  command: bundle exec puma
+  ports:
+    - "81:3001"
+  links:
+    - tf_redis
+    - tdjobs_api
+    - tdusers_api
+
+## --- TaskFlex front end --- ##
+tf_web:
+  build: ./TaskFlex/frontend
+  command: gulp
+  ports:
+    - "80:8000"

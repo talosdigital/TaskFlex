@@ -1,0 +1,64 @@
+@base-color: #1fbad6;
+@error-color: #de253a;
+// link color
+@link-hover-color: darken(@base-color, 10%);
+// Brand Colors
+@brand-primary: #1fbad6;
+@brand-success: #5cb85c;
+@brand-info: #5bc0de;
+@brand-warning: #f0ad4e;
+@brand-danger: #d9534f;
+
+// Gray Colors
+@gray-base: #000;
+@gray-darker: lighten(@gray-base, 13.5%); // #222
+@gray-dark: lighten(@gray-base, 20%); // #333
+@gray: lighten(@gray-base, 33.5%); // #555
+@gray-light: lighten(@gray-base, 46.7%); // #777
+@gray-lighter: lighten(@gray-base, 74%); // #bdbdbd
+@gray-eee: #eee; // #eee
+
+@text-color: @gray-dark;
+@link-color: @base-color;
+//** Link hover color set via `darken()` function.
+@link-hover-color: darken(@link-color, 15%);
+
+// Fonts
+@font-family-base: 'Roboto', Arial, sans-serif;
+@font-size-base: 14px;
+@font-size-large: 16px;
+@font-size-small: 12px;
+@font-size-h1: 24px;
+@font-size-h2: 20px;
+@font-size-h3: 19px;
+@font-size-h4: 18px;
+@font-size-h5: 16px;
+@font-size-h6: 14px;
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-medium: 500;
+@font-weight-bold: 700;
+@icon-font-name: "FontAwesome";
+
+
+//
+@border-radius-base: 3px;
+@border-radius-large: 6px;
+@border-radius-small: 2px;
+@border-radius-max: 100%;
+.border-radius (@radius: @border-radius-base) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+
+//
+@images: "../images";
+//
+.max-height (@max-height: 100%) {
+    height: @max-height;
+}
+
+.max-width (@max-width: 100%) {
+    width: @max-height;
+}

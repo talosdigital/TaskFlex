@@ -1,0 +1,123 @@
+<header ng-show="!header.isLoggedIn() && ('landing' | isState)" class="header">
+    <div class="container">
+        <h1 class="logo pull-left"><a ng-click="header.goTo('landing')">TaskFlex</a></h1>
+        <nav class="nav-bar-custom pull-right clearfix">
+            <div class="nav-custom-general">
+                <div class=" pull-left">
+                    <div class="nav-toggle-btn" ng-class="{ active: header.menuOpen }"
+                         ng-click="header.toggleMenu($event)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                    </div>
+                    <ul class="nav-custom-toggle list-unstyled"
+                        ng-class="{ active: header.menuOpen }">
+                        <li><a ng-click="header.signUp()">Sign Up</a></li>
+                        <li><a ng-click="header.goTo('postJob')">Post a Job</a></li>
+                        <li><a ng-click="header.login()">Log in</a></li>
+                    </ul>
+                </div>
+                <button class="pull-right btn-tasker" ng-click="header.goTo('myJobs.availableJobs')">
+                    Find A Job
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+<header ng-show="header.isLoggedIn()" class="header">
+    <div class="container">
+        <h1 class="logo pull-left"><a ng-click="header.goTo('landing')">TaskFlex</a></h1>
+        <div class="nav-bar-custom pull-left">
+            <ul class="nav-custom-toggle list-unstyled" ng-class="{ active: header.menuOpen }">
+                <div ng-show="header.role() == 'owner'">
+                    <li ng-class="{ active: ('myTaskers' === header.parentState()) }">
+                        <a ng-click="header.goTo('myTaskers.currentTaskers')">My Taskers</a>
+                    </li>
+                    <li ng-class="{ active: ('postJob' | isState) }">
+                        <a ng-click="header.goTo('postJob')">Post A Job</a>
+                    </li>
+                    <li ng-class="{ active: ('myOffers' === header.parentState()) }">
+                        <a ng-click="header.goTo('myOffers.currentOffers')">My Posted jobs</a>
+                    </li>
+                </div>
+                <div ng-show="header.role() == 'tasker'">
+                    <li ng-class="{ active: ('myJobs' === header.parentState()) }">
+                        <a ng-click="header.goTo('myJobs.currentJobs')">My Jobs</a>
+                    </li>
+                    <li ng-class="{ active: ('taskerInvitations' | isState) }">
+                        <a ng-click="header.goTo('taskerInvitations')">My Invitations</a>
+                    </li>
+                    <li ng-class="{ active: ('jobApplications' | isState) }">
+                        <a ng-click="header.goTo('jobApplications')">My Job Applications</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+        <nav class="nav-bar-custom pull-right clearfix">
+            <div class="nav-owner-logined">
+                <div class="pull-right">
+                    <div class="nav-toggle-btn" ng-class="{ active: header.menuOpen }"
+                         ng-click="header.toggleMenu($event)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                    </div>
+                    <div class="nav-user-info pull-right">
+                        <div class="nav-user-info-btn" ng-class="{ active: header.infoOpen }"
+                             ng-click="header.toggleInfo($event)">
+                            <img ng-src="{{ header.user('metadata').picture }}" alt="">
+                            <i class="fa fa-angle-down"></i>
+                        </div>
+                        <ul class="nav-user-list" ng-class="{ active: header.infoOpen }">
+                            <li><a>{{ header.user('firstName') }} {{ header.user('lastName') }}</a></li>
+                            <li><a>{{ header.user('email') }}</a></li>
+                            <li class="seperator"><span></span></li>
+                            <li><a ng-click="header.myProfile()">View Profile</a></li>
+                            <li><a ng-click="header.goTo('password.change')">Change Password</a></li>
+                            <li><a ng-click="header.logout()">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <form class="search-header pull-right" ng-class="{ active: header.searchOpen }"
+                      ng-submit="header.search()">
+                    <i class="fa fa-search" ng-click="header.toggleSearch('search-text-logged')"></i>
+                    <input id="search-text-logged" type="text" placeholder="{{ header.searchPlaceHolder() }}"
+                           ng-blur="header.toggleSearch()" ng-model="header.searchText"/>
+                </form>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="sub-nav" ng-show="header.isLoggedIn() && header.subMenu[header.parentState()]">
+    <div class="container">
+        <ul>
+            <li ng-repeat="subMenu in header.subMenu[header.parentState()].items"
+                ng-class="{ active: (subMenu.active | isState )}">
+                    <a ng-click="header.goTo(subMenu.active)">{{ subMenu.name }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<header ng-hide="header.isLoggedIn() || ('landing' | isState)" class="header">
+    <div class="container">
+        <h1 class="logo pull-left"><a ng-click="header.goTo('landing')">TaskFlex</a></h1>
+        <nav class="nav-bar-custom pull-right clearfix">
+            <div class="nav-owner-nl">
+                <div class=" pull-right">
+                    <div class="nav-toggle-btn" ng-class="{ active: header.menuOpen }"
+                         ng-click="header.toggleMenu($event)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                    </div>
+                    <ul class="nav-custom-toggle list-unstyled"
+                        ng-class="{ active: header.menuOpen }">
+                        <li><a ng-hide="('sign-up' | isState)" ng-click="header.signUp()">Sign up</a></li>
+                        <li><a ng-hide="('login' | isState)" ng-click="header.login()">Log in</a></li>
+                        <li><a ng-click="header.goTo('postJob')">Post a Job</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

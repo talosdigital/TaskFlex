@@ -1,0 +1,34 @@
+<div class="find-tasker">
+    <div class="container">
+        <tf-alert tf-content="findTasker.alert" ng-show="findTasker.alert"></tf-alert>
+        <form class="search-tasker" ng-submit="findTasker.applyFilter(findTasker.filter)">
+            <div class="row">
+                <div class="col-sm-10 col-md-10">
+                    <i class="fa fa-search"></i>
+                    <input type="text" class="form-control" placeholder="Search Tasker..." ng-model="findTasker.filter">
+                </div>
+                <div class="col-sm-2 col-md-2">
+                    <button type="submit" class="btn btn-default btn-block">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="tasker-list">
+            <div class="page-header">
+                <h2 class="page-title">Available Taskers</h2>
+            </div>
+            <tf-empty tf-message="'Unfortunately, there are no taskers available in this moment'" tf-show="findTasker.showEmpty"></tf-empty>
+            <div ng-repeat="tasker in findTasker.taskers" class="tasker-item">
+                <tf-tasker tasker="tasker"></tf-tasker>
+            </div>
+        </div>
+        <!--<div class="text-center">
+            <ul class="pagination">
+                <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li> <a href="#"><i class="fa fa-angle-right"></i></a></li>
+            </ul>
+        </div>-->
+    </div>
+</div>

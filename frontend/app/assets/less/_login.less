@@ -1,0 +1,71 @@
+.login {
+    background-image: url("@{images}/login.png");
+    background-repeat: no-repeat;
+    background-position: center -30px;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    .content {
+        .wrapper {
+            position: relative;
+        }
+    }
+    .login-box {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        color: #fff;
+        background-color: #212121;
+        padding: 25px;
+        width: 400px;
+        margin-left: -200px;
+        margin-top: -135px;
+        max-width: 100%;
+        color: #aaa;
+        a {
+            color: #aaa;
+            &:hover {
+                color: @base-color;
+            }
+        }
+        .form-control {
+            background: none;
+            color:#fff;
+        }
+        input[type=checkbox] {
+            position: relative;
+            top: 2px;
+            margin-right: 4px;
+        }
+    }
+}
+
+@media screen and (max-width:400px) {
+    .login {
+        background: #212121;
+        .login-box {
+            padding: 15px;
+            height: auto;
+            position: relative;
+            left: 0;
+            top: 0;
+            margin: 0;
+        }
+    }
+}
+
+@media screen and (max-height:460px) {
+    .login {
+        background: #212121;
+        .login-box {
+            padding: 15px;
+            height: auto;
+            position: relative;
+            left: 0;
+            top: 0;
+            margin: 0 auto;
+        }
+    }
+}

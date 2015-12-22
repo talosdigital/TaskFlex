@@ -1,0 +1,27 @@
+<div class="past-offers">
+    <div class="container">
+        <div class="page-header">
+            <h2 class="page-title">Past Offers</h2>
+        </div>
+        <tf-empty tf-message="'You don\'t have past jobs in the moment'" tf-show="pastOffers.showEmpty"></tf-empty>
+        <table class="table table-bordered" ng-hide="pastOffers.showEmpty">
+            <thead>
+                <tr>
+                    <th>Job Title</th>
+                    <th>Category</th>
+                    <th>Period</th>
+                    <th>Number of hires</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="job in pastOffers.jobs">
+                    <td><a ui-sref="jobDetails({ job: job.id })">{{ job.name }}</a></td>
+                    <td><i class="{{ job.metadata.category.image }}"></i> {{ job.metadata.category.name }}</td>
+                    <td><tf-date tf-date-expression="job.startDate" tf-date-format="'small'"></tf-date> - <tf-date tf-date-expression="job.finishDate" tf-date-format="'small'"></tf-date></td>
+                    <td>{{ job.metadata.hires }} Taskers</td>
+                </tr>
+            </tbody>
+        </table>
+        <tf-paginator tf-current="pastOffers.currentPage" tf-max-page="pastOffers.pages" tf-on-change="pastOffers.onPageChange"></tf-paginator>
+    </div>
+</div>

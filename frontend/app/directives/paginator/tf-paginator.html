@@ -1,0 +1,8 @@
+<div ng-hide="tfMaxPage <= 1" class="text-center">
+    <ul class="pagination">
+        <li ng-class="{ disabled: tfCurrent <= 1 }"> <a ng-click="changePage(tfCurrent - 1)"><i class="fa fa-angle-left"></i></a></li>
+        <li ng-class="{ active: (tfCurrent === $index + 1) }"
+            ng-repeat="page in pages"><a ng-click="changePage($index + 1)">{{ page.text }}</a></li>
+        <li ng-class="{ disabled: tfCurrent >= tfMaxPage }"> <a ng-click="changePage(tfCurrent + 1)"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+</div>

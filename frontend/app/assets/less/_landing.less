@@ -1,0 +1,261 @@
+/*[landing-home]*/
+.landing-home {
+    background-image: url("@{images}/background.png");
+    background-repeat: no-repeat;
+    background-position: center -30px;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    .content {
+        color: #fff;
+        position: absolute;
+        top: 60px;
+        bottom: 64px;
+        width: 100%;
+        padding: 0;
+    }
+    .cover-find-tasker {
+        background: rgba(0, 0, 0, 0.6);
+        height: 65%;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        .container {
+            position: relative;
+            top: 55%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .cover-find-tasker-title {
+            margin-bottom: 30px;
+            span {
+                display: block;
+                font-size: 60px;
+                line-height: 70px;
+                .text-uppercase;
+                font-weight: 400;
+                letter-spacing: 2px;
+                text-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+                &:first-child {
+                    letter-spacing: 3px;
+                }
+            }
+        }
+        button {
+            background-color: @base-color;
+            .border-radius;
+            .text-uppercase;
+            font-size: 22px;
+            border: none;
+            width: 300px;
+            max-width: 100%;
+            height: 60px;
+            &:hover,
+            &:focus,
+            &:active {
+                outline: none !important;
+            }
+            &:hover {
+                background: darken(@base-color, 5%);
+            }
+            &:active {
+                background: darken(@base-color, 10%);
+            }
+        }
+    }
+    .how-works {
+        height: 35%;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        padding: 40px 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        .text-uppercase;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        .container {
+            width: 480px;
+            max-width: 100%;
+            position: relative;
+            top: 40%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        .how-works-step {
+            img {
+                height: 60px;
+                width: 60px;
+                margin-bottom: 20px;
+            }
+            span {
+                display: block;
+                font-size: 14px;
+            }
+        }
+        h3 {
+            color: @base-color;
+            margin: 0;
+            margin-bottom: 40px;
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+}
+
+
+/*[RES:landing-home]*/
+
+@media screen and (min-width:1921px) {
+    .landing-home {
+        .cover-find-tasker {
+            .container {
+                -webkit-transform: translateY(-60%) scale(1.3);
+                -moz-transform: translateY(-60%) scale(1.3);
+                transform: translateY(-60%) scale(1.3);
+            }
+        }
+        .how-works {
+            .container {
+                -webkit-transform: translateY(-60%) scale(1.3);
+                -moz-transform: translateY(-60%) scale(1.3);
+                transform: translateY(-60%) scale(1.3);
+            }
+        }
+    }
+}
+
+@media screen and (max-width:991px) {
+    .landing-home {
+        .cover-find-tasker {
+            .cover-find-tasker-title {
+                span {
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+            }
+            .container {
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+@media screen and (max-height:770px) and (max-width:760px),
+screen and (max-height:770px) {
+    .landing-home {
+        background-position: center top;
+        .content {
+            position: relative;
+            top: 0;
+            bottom: 0;
+        }
+        .cover-find-tasker {
+            padding: 135px 0 100px;
+            .container {
+                position: relative;
+                top: 0;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                transform: translateY(0);
+            }
+            .cover-find-tasker-title {
+                margin-bottom: 30px;
+            }
+            button {
+                font-size: 22px;
+                width: 300px;
+                max-width: 100%;
+                height: 60px;
+            }
+        }
+        .how-works {
+            bottom: 0;
+            position: relative;
+            width: 100%;
+            padding: 40px 0;
+            .text-uppercase;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            .container {
+                position: relative;
+                top: 0;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) and (max-height:780px) {
+    .landing-home {
+        background-position: 60% top;
+        .cover-find-tasker {
+            padding: 185px 0 50px;
+            .cover-find-tasker-title {
+                span {
+                    font-size: 30px;
+                    line-height: 30px;
+                }
+            }
+            button {
+                background-color: @base-color;
+                width: 250px;
+                height: 60px;
+            }
+        }
+    }
+   
+    .how-works .col-xs-4 {
+        float: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .how-works .col-xs-4:last-child {
+        margin: 0;
+    }
+    .landing-home {
+        .how-works {
+            .how-works-step {
+                img {
+                    height: 50px;
+                    width: 50px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:360px) {
+    .landing-home {
+        .cover-find-tasker {
+            padding: 185px 0 50px;
+            .cover-find-tasker-title {
+                span {
+                    font-size: 24px;
+                    line-height: 28px;
+                    &:first-child {}
+                }
+            }
+            button {
+                background-color: @base-color;
+                width: 250px;
+                height: 60px;
+            }
+        }
+    }
+}

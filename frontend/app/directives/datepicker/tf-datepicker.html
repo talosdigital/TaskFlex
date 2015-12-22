@@ -1,0 +1,11 @@
+<div class="input-group" ng-class="{ active: status.opened }">
+    <input type="text" name="{{ tfName }}" class="form-control"
+           datepicker-popup="MMM d/yyyy" ng-model="tfModel"
+           is-open="status.opened" show-weeks="false"
+           min-date="tfMinDate" max-date="tfMaxDate"
+           datepicker-options="dateOptions"
+           ng-required="tfRequired" close-text="Close" />
+    <span class="input-group-addon" ng-click="open()">
+        <i class="fa fa-calendar"></i>
+    </span>
+</div>

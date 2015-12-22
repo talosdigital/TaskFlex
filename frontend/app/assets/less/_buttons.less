@@ -1,0 +1,126 @@
+/*[btn]*/
+
+.btn {
+    border: none;
+    .text-uppercase;
+    border-radius: 2px;
+    padding: 7px 25px 6px;
+    height: 40px;
+    &:focus,
+    &:active {
+        outline: none !important;
+    }
+
+}
+
+
+.btn-xs {
+    height: 25px;
+    padding: 0px 10px;
+}
+
+.btn-sm {
+    height: 35px;
+    padding: 7px 20px 6px;
+}
+
+.btn-lg {
+    height: 45px;
+}
+
+.btn-block {
+    padding:0;
+}
+
+
+.btn-link {
+    .text-uppercase;
+    color: @base-color;
+    &:hover,
+    &:focus {
+        color: darken(@base-color, 10%);
+    }
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.btn-primary {
+    background-color: @base-color;
+    &:hover {
+        background-color: darken(@base-color, 5%);
+    }
+    &:focus {
+        background-color: darken(@base-color, 10%);
+    }
+    &:active,
+    &:active:hover {
+        background-color: darken(@base-color, 15%) !important;
+    }
+}
+
+.btn-primary.btn-outline {
+    color: @base-color !important;
+    border-color: @base-color;
+    &:hover {
+        border:2px solid  darken(@base-color, 5%);
+    }
+    &:focus {
+        border:2px solid  darken(@base-color, 10%);
+    }
+    &:active,
+    &:active:hover {
+        border:2px solid  darken(@base-color, 15%) !important;
+    }
+}
+
+.btn-default {
+    color: #fff !important;
+    background-color: @gray-light;
+    &:hover {
+        background-color: darken(@gray-light, 5%);
+    }
+    &:focus {
+        background-color: darken(@gray-light, 10%);
+    }
+    &:active,
+    &:active:hover {
+        background-color: darken(@gray-light, 15%) !important;
+    }
+}
+
+
+.btn-default.btn-outline {
+    color: @gray-light !important;
+    border-color: @gray-lighter;
+    &:hover {
+        border:2px solid darken(@gray-lighter, 5%);
+    }
+    &:focus {
+        border:2px solid darken(@gray-lighter, 10%);
+    }
+    &:active,
+    &:active:hover {
+        border:2px solid darken(@gray-lighter, 15%) !important;
+    }
+}
+
+
+.btn-outline {
+    border-width:2px !important; 
+    border-style: solid !important;
+    background: none !important;
+     &:hover {
+         background: none !important;
+    }
+    &:focus {
+         background: none !important;
+    }
+    &:active,
+    &:active:hover {
+         border-style: solid !important;
+         background: none !important;
+    }
+}

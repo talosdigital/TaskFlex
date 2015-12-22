@@ -1,0 +1,39 @@
+<div class="cover-find-tasker text-center">
+    <div class="container">
+        <div class="cover-find-tasker-title">
+            <span>The best taskers</span>
+            <span>For any occasion</span>
+        </div>
+        <button ng-hide="landing.isTasker()" type="button" ui-sref="myTaskers.findTasker">
+            Find a Tasker
+        </button>
+        <button ng-show="landing.isTasker()" type="button" ui-sref="myJobs.availableJobs">
+            Find a Job
+        </button>
+    </div>
+</div>
+<div class="how-works text-center">
+    <div class="container">
+        <h3>How it works</h3>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="how-works-step">
+                    <img src="assets/images/home-user.svg" />
+                    <span>1. Find a Tasker</span>
+                </div>
+            </div>
+             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="how-works-step">
+                    <img src="assets/images/home-message.svg" />
+                    <span>2. Invite to apply</span>
+                </div>
+            </div>
+             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="how-works-step">
+                    <img src="assets/images/home-heart.svg" />
+                    <span>3. Enjoy !</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

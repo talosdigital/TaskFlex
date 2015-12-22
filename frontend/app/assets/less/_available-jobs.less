@@ -1,0 +1,309 @@
+.available-jobs {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    .pagination {
+        margin-bottom: 0;
+    }
+    .search-jobs {
+        margin-bottom: 40px;
+        position: relative;
+        .form-control {
+            padding-left: 40px;
+            &:focus {
+                border-color: @base-color;
+            }
+        }
+        .fa-search {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .btn {
+            background-color: #aaa;
+            &:hover {
+                background-color: #888;
+            }
+        }
+    }
+    .category-jobs {
+        .list-unstyled;
+        margin-top: 35px;
+        li {
+            background-color: @gray-eee;
+            margin-bottom: 1px;
+            line-height: 50px;
+            max-height: 50px;
+            a {
+                display: block;
+                padding-left: 10px;
+                color: @gray;
+                outline: none !important;
+                cursor: pointer;
+                font-size: 12px;
+                padding-left: 50px;
+                position: relative;
+            }
+            .cat-icon {
+                left: 0;
+                top: 0;
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                display: inline-block;
+                text-align: center;
+                line-height: 30px;
+            }
+            .cat-icon-all {
+                background: url('../images/category/all-grey.svg') no-repeat center center;
+            }
+            .cat-icon-dev {
+                background: url('../images/category/code-grey.svg') no-repeat center center;
+            }
+            .cat-icon-accounting {
+                background: url('../images/category/chart-grey.svg') no-repeat center center;
+            }
+            .cat-icon-design {
+                background: url('../images/category/pencil-grey.svg') no-repeat center center;
+            }
+            .cat-icon-engineering {
+                background: url('../images/category/engineering-grey.svg') no-repeat center center;
+            }
+            .cat-icon-sales {
+                background: url('../images/category/money-grey.svg') no-repeat center center;
+            }
+        }
+        .category-selected {
+            a {
+                color: @base-color;
+            }
+            .cat-icon-all {
+                background: url('../images/category/all-blue.svg') no-repeat center center;
+            }
+            .cat-icon-dev {
+                background: url('../images/category/code-blue.svg') no-repeat center center;
+            }
+            .cat-icon-accounting {
+                background: url('../images/category/chart-blue.svg') no-repeat center center;
+            }
+            .cat-icon-design {
+                background: url('../images/category/pencil-blue.svg') no-repeat center center;
+            }
+            .cat-icon-engineering {
+                background: url('../images/category/engineering-blue.svg') no-repeat center center;
+            }
+            .cat-icon-sales {
+                background: url('../images/category/money-blue.svg') no-repeat center center;
+            }
+        }
+    }
+    .job-item {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+        padding-right: 160px;
+        .item-title {}
+        .item-subtitle {}
+        .item-date {
+            margin-bottom: 10px;
+            color: @gray-lighter;
+        }
+        .item-desc {
+            text-align: justify;
+        }
+        .item-price {
+            width: 145px;
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-weight: @font-weight-medium;
+            color: @base-color;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            width: 145px;
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .available-jobs {
+        .search-jobs {
+            margin-bottom: 30px;
+            position: relative;
+            .col-md-2 {
+                position: static;
+            }
+            .form-control {
+                border-width: 1px;
+            }
+        }
+        .category-jobs {
+            margin-bottom: 30px;
+            margin-top: 0 !important;
+            li {
+                float: left;
+                height: 100px;
+                max-height: 110px;
+                font-size: 12px;
+                text-align: center;
+                position: relative;
+                width: 16.6666666667%;
+                vertical-align: text-bottom;
+                a {
+                    padding: 20px 0 10px;
+                    max-height: 100%;
+                    line-height: 15px;
+                    border-right: 1px solid #fff;
+                    height: 100%;
+                    display: block;
+                    text-align: center;
+                    span {
+                        display: block;
+                        padding: 0 5px
+                    }
+                }
+                &:last-child a {
+                    border: none;
+                }
+                .cat-icon {
+                    position: relative;
+                    top: 0;
+                    height: 30px;
+                    margin-bottom: 10px;
+                }
+            }
+            .category-selected {
+                background-color: #eaeaea;
+                &:after {
+                    content: "";
+                    border-top: 8px solid #eaeaea;
+                    border-right: 8px solid transparent;
+                    border-left: 8px solid transparent;
+                    width: 0;
+                    height: 0;
+                    position: absolute;
+                    bottom: -8px;
+                    left: 50%;
+                    margin-left: -8px;
+                }
+                span {
+                    color: @base-color;
+                }
+            }
+        }
+        .job-item {
+            padding-right: 0;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .available-jobs {
+        padding-top: 15px;
+        .search-jobs {
+            margin-bottom: 15px;
+            .form-control {
+                border-width: 1px;
+            }
+            .btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100px;
+                border-radius: 0;
+                border: 1px solid #aaa;
+                background-color: #aaa;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:640px) {
+    .available-jobs {
+        .job-item {
+            .btn,
+            .item-price {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+            .item-price {
+                text-align: left;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .btn {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:600px) {
+    .available-jobs {
+        .available-jobs-title {
+            font-size: 16px;
+        }
+        .category-jobs {
+            li {
+                height: 60px;
+                max-height: 60px;
+                a {
+                    padding: 15px 0;
+                    border-right: 1px solid #fff;
+                    span {
+                        display: none;
+                    }
+                    .fa {
+                        background: none;
+                        font-size: 18px;
+                    }
+                }
+                &:last-child a {
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .available-jobs {
+        .job-item {
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:360px) {
+    .available-jobs {
+        .category-jobs {
+            li {
+                height: 52px;
+                max-height: 52px;
+                a {
+                    padding: 10px 0;
+                    border-right: 1px solid #fff;
+                    span {
+                        display: none;
+                    }
+                }
+                &:last-child a {
+                    border: none;
+                }
+            }
+        }
+    }
+}

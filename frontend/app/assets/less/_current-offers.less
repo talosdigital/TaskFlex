@@ -1,0 +1,114 @@
+.current-offers {
+    padding-bottom: 40px;
+    padding-top: 40px;
+    .pagination {
+        margin-bottom: 0;
+    }
+    .item-offers {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        padding-right: 160px;
+        position: relative;
+        .item-title {
+            color: @base-color;
+        }
+        .item-tagline {}
+        .item-date {
+            color: @gray-lighter;
+            margin-bottom: 10px;
+        }
+        .item-desc {
+            text-align: justify;
+            color: #777;
+        }
+        .item-price {
+            width: 145px;
+            top: 0;
+            right: 0;
+            position: absolute;
+            font-weight: @font-weight-medium;
+            color: @base-color;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .btn-primary {
+            position: absolute;
+            right: 0;
+            top: 40px;
+            width: 145px;
+        }
+        .item-status {
+            .button-status{ 
+                display: inline-block;}
+            span {
+                display: inline-block;
+                margin-right: 15px;
+                font-weight: @font-weight-medium;
+                color: #777;
+            }
+            .btn {
+                background: none;
+                border-color:#ccc !important;
+                color:#aaa !important;
+            }
+            .btn-success {
+                .fa {
+                color: #5CB85C;
+            }
+                border: 1px solid #5CB85C;
+            }
+            .btn-warning {
+                .fa {
+                color: #F0AD4E;}
+                border: 1px solid #F0AD4E;
+            }
+            .btn-danger {
+                .fa {
+                color: #D9534F;}
+                border: 1px solid #D9534F;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:700px) {
+    .current-offers {
+        .item-offers {
+            padding-right: 0;
+            .btn-primary,
+            .item-price {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
+            .item-price {
+                text-align: left;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .btn-primary {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:526px) {
+    .item-status {
+        margin-bottom: 20px;
+        span {
+            margin-bottom: 4px;
+        }
+    }
+}
+
+@media screen and (max-width:480px) {
+    .current-offers {
+        .item-offers {
+            .btn-primary {
+                width: 100%;
+            }
+        }
+    }
+}
