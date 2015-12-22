@@ -5,11 +5,11 @@
     "juandavid.castillo@gmail.com",
     "rene.davila@talosdigital"
   ],
-  "description": "A web client for Task Flex.",
-  "main": "main.js",
-  "license": "Talos License",
+  "description": "A web client for TaskFlex.",
+  "main": "app.js",
+  "license": "MIT",
   "private": true,
-  "homepage": "repository goes here.",
+  "homepage": "https://github.com/talosdigital/TaskFlex",
   "dependencies": {
     "angular": "~1.4.3",
     "angular-bootstrap": "~0.13.4",

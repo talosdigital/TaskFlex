@@ -26,12 +26,12 @@ how to deploy and use the project in your own environment.
 connection it took around 45 minutes.
 
 ```bash
-bash -c "$(curl -s https://raw.githubusercontent.com/talosdigital/tasksecurity/develop/raw/init.sh?token=AFBX9X21lRkIF4paPIEasQA8CffQN9_hks5Wexc4wA%3D%3D)"
+bash -c "$(curl -s https://raw.githubusercontent.com/talosdigital/TaskFlex/master/raw/init.sh)"
 ```
 
 The above *all-in-one* [bash] script will do the hard work for you. It will
-be perfect if you only want to see TaskFlex running and working alongside TDJobs
-and TDUser, and play with them.
+be perfect if you only want to see TaskFlex running and working alongside [TDJobs]
+and [TDUser], and play with them.
 
 The only things you need to have are (notice starred items before installing):
 - [Docker]\* installed.
@@ -49,7 +49,7 @@ The only things you need to have are (notice starred items before installing):
 The above command will, in respective order:
   1. Create a working directory.
   2. Check installation of required programs.
-  3. Clone TaskFlex, [TDJobs] and [TDUsers] repositories.
+  3. Clone TaskFlex, [TDJobs] and [TDUser] repositories.
   4. Download a *docker-compose* file with link, build and execute instructions
      for Docker. (*Don't worry, it is all automatic*).
   5. Download and build required images and containers.
@@ -93,7 +93,7 @@ service, and **taskers** to apply or being invited to a particular job.
 
 TaskFlex has two main components, we have got a [front end] built in AngularJS
 and a [back end] developed in Ruby on Rails. TaskFlex’s back end is an **API**
-which uses 2 other services: [TDUsers] and [TDJobs], which handle user/ accounts
+which uses 2 other services: [TDUser] and [TDJobs], which handle user/ accounts
 logic, and the job marketplace logic, respectively.
 
 In order to clarify the above description, take a look at the following diagram:
@@ -104,8 +104,11 @@ In order to clarify the above description, take a look at the following diagram:
 
 You may be wondering what is *Wrapper gems*. Well, they are simple Ruby gems
 that make an abstraction of HTTP communication between our TaskFlex back end
-and both TDJobs and TDUsers services, through models and methods, making easier
-the usage of the mentioned services.
+and both TDJobs and TDUser services, through models and methods, making easier
+the usage of the mentioned services. Take a look at them in the following links:
+
+- [TDJobsGem](https://github.com/talosdigital/TDJobsGem)
+- [TDUserGem](https://github.com/talosdigital/TDUserGem)
 
 ## Try it yourself
 
@@ -135,22 +138,22 @@ Version Manager (RVM)]
 > - [Rails] - 4.2.3+
 
 - [Redis] - 3.0.5
-- [TDJobs] - x.x.x
-- [TDUsers] - x.x.x
+- [TDJobs] - 1.0.0
+- [TDUser] - 1.0.0
 
 ### Download
 In order to run get the project, you can directly download and extract the
-[`.zip`](https://github.com/talosdigital/tasksecurity/archive/master.zip)
+[`.zip`](https://github.com/talosdigital/TaskFlex/archive/master.zip)
 package,
 
 or clone it using git:
 ```bash
-$ git clone https://github.com/talosdigital/tasksecurity.git
+$ git clone https://github.com/talosdigital/TaskFlex.git
 ```
 
 Once you have downloaded the project, you will find the following structure:
 ```
-taskflex/
+TaskFlex/
 ├── frontend/
 │   ├── app/
 │   └── spec/
@@ -230,7 +233,7 @@ following command.
 $ cd backend/
 ```
 > **Note:** Previous command assuming you are in the project's root directory,
-i.e. `taskflex/`.
+i.e. `TaskFlex/`.
 
 ##### Setup environment variables
 
@@ -238,7 +241,7 @@ Many of the following configuration steps use environment
 variables, notice that **`config/environment.rb`** file loads another file
 called **`environment_variables.rb`** which is automatically created (through an initializer)
 according to the information provided in the **`config/env_vars.json`** file. If you open it you'll
-find some *dummy* configuration which won't work. You should modify the `.json` file
+find some *dummy* configuration which **won't work**. You should modify the `.json` file
 according to your configuration.
 
 ##### Install application dependencies
@@ -263,7 +266,7 @@ consume that running service.
 With your favourite editor, open the `td_jobs_config.rb` file which is located
 in `app/config/initializers/` directory. There you will find two configurations:
 `application_secret` and `base_url`. Setup those configuration variables
-accordingly to your TDJobs instance.
+accordingly to your running TDJobs instance.
 
 * `application_secret` is defined by TDJobs configuration, every request made by
 TaskFlex will contain a header with this secret, telling that it is an
@@ -273,25 +276,25 @@ example value for this variable is: `http://localhost:3000/api/v1`.
 
 > *Default production values are loaded from environment configuration*
 
-##### Configure TDUsers
-> Assuming that you already followed the given steps in [TDUsers] README and
+##### Configure TDUser
+> Assuming that you already followed the given steps in [TDUser] README and
 have a running instance of it, now it is time to configure our TaskFlex back
 end to consume that running service.
 
 With your favourite editor, open the `td_users_config.rb` file which is located
 in `app/config/initializers/` directory. There you will find the following
-configurations, which you should setup accordingly to your running TDUsers
+configurations, which you should setup accordingly to your running TDUser
 intance:
 
-* `application_secret` is defined by TDUsers configuration, every request made
+* `application_secret` is defined by TDUser configuration, every request made
 by TaskFlex will contain a header with this secret, telling that it is an
 authorized application.
-* `base_url` is the URL and port where your TDUsers is running, an example value
+* `base_url` is the URL and port where your TDUser is running, an example value
 for this variable is: `http://localhost:9001`.
-* `user_url` is the base path where the *user* module defined by TDUsers is
-located. This variable is `/api/v1/user/`  by default.
-* `auth_url` is the base path where the *auth* module defined by TDUsers is
-located. This variable is `/api/v1/auth/`  by default.
+* `user_url` is the base path where the *user* module defined by TDUser is
+located. This variable is `/api/v1/user/` by default.
+* `auth_url` is the base path where the *auth* module defined by TDUser is
+located. This variable is `/api/v1/auth/` by default.
 
 > *Default production values are loaded from environment configuration*
 
@@ -445,7 +448,7 @@ See [CONTRIBUTING](CONTRIBUTING.md) for details.
 [back end]:backend/
 [front end]:frontend/
 [TDJobs]:http://github.com/talosdigital/TDJobs
-[TDUsers]:http://github.com/talosdigital/TDUser
+[TDUser]:http://github.com/talosdigital/TDUser
 [Node Version Manager (NVM)]:https://github.com/creationix/nvm
 [Node.js]:https://nodejs.org/
 [Bower]:http://bower.io/
