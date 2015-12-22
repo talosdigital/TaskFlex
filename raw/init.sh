@@ -8,7 +8,7 @@ tduser_git_url="https://github.com/talosdigital/TDUser"
 taskflex_git_url="https://github.com/talosdigital/TaskFlex"
 
 tdjobs_git_branch="master"
-tduser_git_branch="rc1"
+tduser_git_branch="master"
 taskflex_git_branch="master"
 
 tdjobs_dir="TDJobs"
