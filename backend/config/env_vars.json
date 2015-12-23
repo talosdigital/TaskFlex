@@ -1,0 +1,22 @@
+{
+  "production": {
+    "TDJOBS_SECRET": "ah15Af6130kgoa5sD1yUQioaP",
+    "TDJOBS_URL": "http://tdjobs_api:3000",
+    "TDUSERS_SECRET": "TDUserToken-CHANGE-ME!",
+    "TDUSERS_URL": "http://tdusers_api:9001",
+    "TASKFLEX_EMAIL_IMAGE_SCHEME": "https",
+    "TASKFLEX_EMAIL_IMAGE_HOST": "dropbox.com",
+    "TASKFLEX_EMAIL_IMAGE_PATH": "/TaskFlex_email_images",
+    "TASKFLEX_EMAIL_HREF": "http://taskflex.talosdigital.com/#/",
+    "TASKFLEX_EMAIL_FROM": "TaskFlex <taskflex@taskflex.com>",
+    "TASKFLEX_EMAIL_HOST": "taskflex.com",
+    "TASKFLEX_EMAIL_DOMAIN": "taskflex.com",
+    "TASKFLEX_EMAIL_ADDRESS": "smtp.taskflex.com",
+    "TASKFLEX_EMAIL_PORT": "587",
+    "TASKFLEX_EMAIL_USER_NAME": "taskflex@taskflex.com",
+    "TASKFLEX_EMAIL_PASSWORD": "taskflex"
+  },
+  "development": {
+    "SAMPLE_VAR": "foo"
+  }
+}

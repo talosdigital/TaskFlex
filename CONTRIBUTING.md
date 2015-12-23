@@ -10,7 +10,7 @@ Here are some of them:
 
 ## Reporting bugs and issues
 Head over to [this repository's issues page]
-(https://github.com/talosdigital/tasksecurity/issues), and open a new one!
+(https://github.com/talosdigital/TaskFlex/issues), and open a new one!
 It's very helpful if you specify as much as you can about the environment you're
 working on, and the steps to reproduce the issue!
 

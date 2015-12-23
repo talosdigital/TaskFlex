@@ -5,19 +5,18 @@ work_dir="tfworkdir"
 
 tdjobs_git_url="https://github.com/talosdigital/TDJobs"
 tduser_git_url="https://github.com/talosdigital/TDUser"
-taskflex_git_url="https://github.com/talosdigital/tasksecurity"
+taskflex_git_url="https://github.com/talosdigital/TaskFlex"
 
-tdjobs_git_branch="develop"
-tduser_git_branch="rc1"
-taskflex_git_branch="develop"
+tdjobs_git_branch="master"
+tduser_git_branch="master"
+taskflex_git_branch="master"
 
 tdjobs_dir="TDJobs"
 tduser_dir="TDUser"
 taskflex_dir="TaskFlex"
 
-docker_compose_url="https://raw.githubusercontent.com/talosdigital/"`
-                  `"tasksecurity/develop/raw/docker-compose.yml?token="`
-                  `"AFBX9SSLBLs_kUEACzCB5MGLnQRPsz0xks5WeCixwA%3D%3D"
+docker_compose_url="https://raw.githubusercontent.com/talosdigital/TaskFlex/master/raw/"`
+                  `"docker-compose.yml"
 
 ### Colors
 red='\033[0;31m'

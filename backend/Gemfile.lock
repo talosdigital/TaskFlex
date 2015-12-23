@@ -1,24 +1,21 @@
 GIT
-  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDCoreGem.git
-  revision: 08fab3a9ad5ee2eaefd4313822d0a97a9b134f7e
-  branch: develop
+  remote: https://github.com/talosdigital/TDCoreGem.git
+  revision: bc7c78fb2e28e426c189c850d1a30b92fb407c05
   specs:
     td-core (0.2.0)
       activesupport (= 4.2.3)
 
 GIT
-  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDJobsGem.git
-  revision: 2065d840adb63513bd818d71d2e6aa2c388d8de7
-  branch: develop
+  remote: https://github.com/talosdigital/TDJobsGem.git
+  revision: f3a377603a139722b2ce72efda7086d6e04cada6
   specs:
     td-jobs (1.0.0)
       activesupport (= 4.2.3)
       httparty (= 0.13.5)
 
 GIT
-  remote: https://0104375524f8a45f3a9101a2e0816302206c813d@github.com/talosdigital/TDUserGem.git
-  revision: 27e2fb2a771e58b5aa14c22fecd7daa4f39b4232
-  branch: develop
+  remote: https://github.com/talosdigital/TDUserGem.git
+  revision: 47db034dff6ffc1728c6ccf6c32798690219d522
   specs:
     td-users (1.1.0)
       httparty (= 0.13.5)
@@ -235,7 +232,7 @@ DEPENDENCIES
   ci_reporter_rspec
   faker
   grape
-  puma
+  puma (~> 2.15.3)
   rack-cors
   rails (= 4.2.3)
   rails-api
@@ -252,4 +249,4 @@ DEPENDENCIES
   td-users!
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
