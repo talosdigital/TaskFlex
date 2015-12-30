@@ -5,9 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/styles.css?ver=1.2">
+
+    <!-- bower:css-->
+    <!-- endbower -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- endinject -->
 </head>
 
 <body ng-class="{ 'landing-home': ('landing' | isState),  'login': ('login' | isState),
@@ -33,151 +39,110 @@
             </ul>
         </div>
     </footer>
-    <!-- jQuery -->
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <!-- Custom Scripts -->
-    <script src="assets/js/scripts.js"></script>
-    <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- angular & dependencies -->
-    <script src="lib/angular/angular.js" type="text/javascript"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js" type="text/javascript"></script>
-    <script src="lib/angular-cookies/angular-cookies.js" type="text/javascript"></script>
-    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js" type="text/javascript"></script>
-    <!-- Session and local storage -->
-    <script src="lib/ngstorage/ngStorage.min.js" type="text/javascript"></script>
-    <!-- castillobg dolittle -->
-    <script src="lib/dolittle/dolittle.js" type="text/javascript"></script>
-    <!-- URI.js -->
-    <script src="lib/urijs/src/URI.min.js" type="text/javascript"></script>
-    <!-- main module -->
-    <script src="main.js" type="text/javascript"></script>
-    <!-- Facebook initialization -->
-    <script src="services/facebook/facebook.init.js" type="text/javascript"></script>
-    <!-- services -->
-    <script src="services/resource.service.js" type="text/javascript"></script>
-    <script src="services/tasker.service.js" type="text/javascript"></script>
-    <script src="services/job.service.js" type="text/javascript"></script>
-    <script src="services/owner.service.js" type="text/javascript"></script>
-    <script src="services/invitation.service.js" type="text/javascript"></script>
-    <script src="services/locations.service.js" type="text/javascript"></script>
-    <script src="services/category.service.js" type="text/javascript"></script>
-    <script src="services/user.service.js" type="text/javascript"></script>
-    <script src="services/focus.service.js" type="text/javascript"></script>
-    <script src="services/facebook/facebook.service.js" type="text/javascript"></script>
-    <script src="services/offer.service.js" type="text/javascript"></script>
-    <script src="services/auth.service.js" type="text/javascript"></script>
-    <script src="services/alert.service.js" type="text/javascript"></script>
-    <!-- directives -->
-    <script src="directives/alert/tf-alert.dir.js" type="text/javascript"></script>
-    <script src="directives/tasker/tasker.dir.js" type="text/javascript"></script>
-    <script src="directives/job/job.dir.js" type="text/javascript"></script>
-    <script src="directives/read-more/hm-read.dir.js" type="text/javascript"></script>
-    <script src="directives/datepicker/tf-datepicker.dir.js" type="text/javascript"></script>
-    <script src="directives/paginator/tf-paginator.dir.js" type="text/javascript"></script>
-    <script src="directives/date/tf-date.dir.js" type="text/javascript"></script>
-    <script src="directives/empty-message/tf-empty.dir.js" type="text/javascript"></script>
-    <script src="directives/dropdown/tf-dropdown.dir.js" type="text/javascript"></script>
-    <script src="directives/parse-to-number/tf-parse-to-number.dir.js" type="text/javascript"></script>
-    <!-- filters -->
-    <script src="filters/capitalize.filter.js" type="text/javascript"></script>
-    <!-- components -->
-    <!-- header -->
-    <script src="components/header/header.ctrl.js" type="text/javascript"></script>
-    <!-- landing -->
-    <script src="components/landing/landing.conf.js" type="text/javascript"></script>
-    <script src="components/landing/landing.ctrl.js" type="text/javascript"></script>
-    <!-- login -->
-    <script src="components/login/login.conf.js" type="text/javascript"></script>
-    <script src="components/login/login.ctrl.js" type="text/javascript"></script>
-    <!-- post-job -->
-    <script src="components/owner/post-job/post-job.conf.js" type="text/javascript"></script>
-    <script src="components/owner/post-job/post-job.ctrl.js" type="text/javascript"></script>
-    <!-- sign-up -->
-    <script src="components/sign-up/sign-up.conf.js" type="text/javascript"></script>
-    <script src="components/sign-up/sign-up.ctrl.js" type="text/javascript"></script>
-    <!-- find-tasker -->
-    <script src="components/owner/taskers/find-tasker/find-tasker.conf.js" type="text/javascript"></script>
-    <script src="components/owner/taskers/find-tasker/find-tasker.ctrl.js" type="text/javascript"></script>
-    <!-- available-jobs -->
-    <script src="components/tasker/jobs/available-jobs/available-jobs.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/jobs/available-jobs/available-jobs.ctrl.js" type="text/javascript"></script>
-    <!-- tasker-profile -->
-    <script src="components/tasker/tasker-profile/tasker-profile.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/tasker-profile/tasker-profile.ctrl.js" type="text/javascript"></script>
-    <!-- invite -->
-    <script src="components/owner/invite/invite.conf.js" type="text/javascript"></script>
-    <script src="components/owner/invite/invite.ctrl.js" type="text/javascript"></script>
-    <!-- past-offers -->
-    <script src="components/owner/offers/past-offers/past-offers.conf.js" type="text/javascript"></script>
-    <script src="components/owner/offers/past-offers/past-offers.ctrl.js" type="text/javascript"></script>
-    <!-- password states -->
-    <script src="components/password/password.conf.js" type="text/javascript"></script>
-    <!-- change-password -->
-    <script src="components/password/change/change.conf.js" type="text/javascript"></script>
-    <script src="components/password/change/change.ctrl.js" type="text/javascript"></script>
-    <!-- my-jobs -->
-    <script src="components/owner/offers/my-offers.conf.js" type="text/javascript"></script>
-    <!-- current-offers -->
-    <script src="components/owner/offers/current-offers/current-offers.conf.js" type="text/javascript"></script>
-    <script src="components/owner/offers/current-offers/current-offers.ctrl.js" type="text/javascript"></script>
-    <!-- job-details -->
-    <script src="components/job-details/job-details.conf.js" type="text/javascript"></script>
-    <script src="components/job-details/job-details.ctrl.js" type="text/javascript"></script>
-    <!-- offers-reply -->
-    <script src="components/owner/offer-reply/offer-reply.conf.js" type="text/javascript"></script>
-    <script src="components/owner/offer-reply/offer-reply.ctrl.js" type="text/javascript"></script>
-    <!-- tasker-invitations -->
-    <script src="components/tasker/invitations/tasker-invitations.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/invitations/tasker-invitations.ctrl.js" type="text/javascript"></script>
-    <!-- invitation-details -->
-    <script src="components/tasker/invitation-details/invitation-details.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/invitation-details/invitation-details.ctrl.js" type="text/javascript"></script>
-    <!-- edit-profile -->
-    <script src="components/tasker/edit-profile/edit-profile.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/edit-profile/edit-profile.ctrl.js" type="text/javascript"></script>
-    <!-- my-taskers -->
-    <script src="components/owner/taskers/my-taskers.conf.js" type="text/javascript"></script>
-    <!-- current-taskers -->
-    <script src="components/owner/taskers/current-taskers/current-taskers.conf.js" type="text/javascript"></script>
-    <script src="components/owner/taskers/current-taskers/current-taskers.ctrl.js" type="text/javascript"></script>
-    <!-- my-jobs -->
-    <script src="components/tasker/jobs/my-jobs.conf.js" type="text/javascript"></script>
-    <!-- current-jobs -->
-    <script src="components/tasker/jobs/current-jobs/current-jobs.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/jobs/current-jobs/current-jobs.ctrl.js" type="text/javascript"></script>
-    <!-- offers-replies -->
-    <script src="components/owner/offer-replies/offer-replies.conf.js" type="text/javascript"></script>
-    <script src="components/owner/offer-replies/offer-replies.ctrl.js" type="text/javascript"></script>
-    <!-- tasker-reply -->
-    <script src="components/tasker/tasker-reply/tasker-reply.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/tasker-reply/tasker-reply.ctrl.js" type="text/javascript"></script>
-    <!-- apply-job -->
-    <script src="components/tasker/apply-job/apply-job.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/apply-job/apply-job.ctrl.js" type="text/javascript"></script>
-    <!-- past-taskers -->
-    <script src="components/owner/taskers/past-taskers/past-taskers.conf.js" type="text/javascript"></script>
-    <script src="components/owner/taskers/past-taskers/past-taskers.ctrl.js" type="text/javascript"></script>
-    <!-- past-jobs -->
-    <script src="components/tasker/jobs/past-jobs/past-jobs.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/jobs/past-jobs/past-jobs.ctrl.js" type="text/javascript"></script>
-    <!-- job-applications -->
-    <script src="components/tasker/applications/job-applications.conf.js" type="text/javascript"></script>
-    <script src="components/tasker/applications/job-applications.ctrl.js" type="text/javascript"></script>
-    <!-- role-choice -->
-    <script src="components/role-choice/role-choice.conf.js" type="text/javascript"></script>
-    <script src="components/role-choice/role-choice.ctrl.js" type="text/javascript"></script>
-    <!-- forgot-password -->
-    <script src="components/password/request/request.conf.js" type="text/javascript"></script>
-    <script src="components/password/request/request.ctrl.js" type="text/javascript"></script>
-    <script src="components/password/reset/reset.conf.js" type="text/javascript"></script>
-    <script src="components/password/reset/reset.ctrl.js" type="text/javascript"></script>
-    <!-- not-found -->
-    <script src="components/not-found/not-found.conf.js" type="text/javascript"></script>
-    <script src="components/not-found/not-found.ctrl.js" type="text/javascript"></script>
-    <!-- deal-confirmation -->
-    <script src="components/owner/deal-confirmation/deal-confirmation.conf.js" type="text/javascript"></script>
-    <script src="components/owner/deal-confirmation/deal-confirmation.ctrl.js" type="text/javascript"></script>
 
+    <!-- bower:js -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/dolittle/dolittle.js"></script>
+    <script src="lib/ngstorage/ngStorage.js"></script>
+    <script src="lib/urijs/src/URI.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="main.js"></script>
+    <script src="filters/capitalize.filter.js"></script>
+    <script src="services/alert.service.js"></script>
+    <script src="services/auth.service.js"></script>
+    <script src="services/category.service.js"></script>
+    <script src="services/focus.service.js"></script>
+    <script src="services/invitation.service.js"></script>
+    <script src="services/job.service.js"></script>
+    <script src="services/locations.service.js"></script>
+    <script src="services/offer.service.js"></script>
+    <script src="services/owner.service.js"></script>
+    <script src="services/resource.service.js"></script>
+    <script src="services/tasker.service.js"></script>
+    <script src="services/user.service.js"></script>
+    <script src="components/header/header.ctrl.js"></script>
+    <script src="components/job-details/job-details.conf.js"></script>
+    <script src="components/job-details/job-details.ctrl.js"></script>
+    <script src="components/landing/landing.conf.js"></script>
+    <script src="components/landing/landing.ctrl.js"></script>
+    <script src="components/login/login.conf.js"></script>
+    <script src="components/login/login.ctrl.js"></script>
+    <script src="components/not-found/not-found.conf.js"></script>
+    <script src="components/not-found/not-found.ctrl.js"></script>
+    <script src="components/password/password.conf.js"></script>
+    <script src="components/role-choice/role-choice.conf.js"></script>
+    <script src="components/role-choice/role-choice.ctrl.js"></script>
+    <script src="components/sign-up/sign-up.conf.js"></script>
+    <script src="components/sign-up/sign-up.ctrl.js"></script>
+    <script src="directives/alert/tf-alert.dir.js"></script>
+    <script src="directives/date/tf-date.dir.js"></script>
+    <script src="directives/datepicker/tf-datepicker.dir.js"></script>
+    <script src="directives/dropdown/tf-dropdown.dir.js"></script>
+    <script src="directives/empty-message/tf-empty.dir.js"></script>
+    <script src="directives/job/job.dir.js"></script>
+    <script src="directives/paginator/tf-paginator.dir.js"></script>
+    <script src="directives/parse-to-number/tf-parse-to-number.dir.js"></script>
+    <script src="directives/read-more/hm-read.dir.js"></script>
+    <script src="directives/tasker/tasker.dir.js"></script>
+    <script src="services/facebook/facebook.init.js"></script>
+    <script src="services/facebook/facebook.service.js"></script>
+    <script src="components/owner/deal-confirmation/deal-confirmation.conf.js"></script>
+    <script src="components/owner/deal-confirmation/deal-confirmation.ctrl.js"></script>
+    <script src="components/owner/invite/invite.conf.js"></script>
+    <script src="components/owner/invite/invite.ctrl.js"></script>
+    <script src="components/owner/offer-replies/offer-replies.conf.js"></script>
+    <script src="components/owner/offer-replies/offer-replies.ctrl.js"></script>
+    <script src="components/owner/offer-reply/offer-reply.conf.js"></script>
+    <script src="components/owner/offer-reply/offer-reply.ctrl.js"></script>
+    <script src="components/owner/offers/my-offers.conf.js"></script>
+    <script src="components/owner/post-job/post-job.conf.js"></script>
+    <script src="components/owner/post-job/post-job.ctrl.js"></script>
+    <script src="components/owner/taskers/my-taskers.conf.js"></script>
+    <script src="components/password/change/change.conf.js"></script>
+    <script src="components/password/change/change.ctrl.js"></script>
+    <script src="components/password/request/request.conf.js"></script>
+    <script src="components/password/request/request.ctrl.js"></script>
+    <script src="components/password/reset/reset.conf.js"></script>
+    <script src="components/password/reset/reset.ctrl.js"></script>
+    <script src="components/tasker/applications/job-applications.conf.js"></script>
+    <script src="components/tasker/applications/job-applications.ctrl.js"></script>
+    <script src="components/tasker/apply-job/apply-job.conf.js"></script>
+    <script src="components/tasker/apply-job/apply-job.ctrl.js"></script>
+    <script src="components/tasker/edit-profile/edit-profile.conf.js"></script>
+    <script src="components/tasker/edit-profile/edit-profile.ctrl.js"></script>
+    <script src="components/tasker/invitation-details/invitation-details.conf.js"></script>
+    <script src="components/tasker/invitation-details/invitation-details.ctrl.js"></script>
+    <script src="components/tasker/invitations/tasker-invitations.conf.js"></script>
+    <script src="components/tasker/invitations/tasker-invitations.ctrl.js"></script>
+    <script src="components/tasker/jobs/my-jobs.conf.js"></script>
+    <script src="components/tasker/tasker-profile/tasker-profile.conf.js"></script>
+    <script src="components/tasker/tasker-profile/tasker-profile.ctrl.js"></script>
+    <script src="components/tasker/tasker-reply/tasker-reply.conf.js"></script>
+    <script src="components/tasker/tasker-reply/tasker-reply.ctrl.js"></script>
+    <script src="components/owner/offers/current-offers/current-offers.conf.js"></script>
+    <script src="components/owner/offers/current-offers/current-offers.ctrl.js"></script>
+    <script src="components/owner/offers/past-offers/past-offers.conf.js"></script>
+    <script src="components/owner/offers/past-offers/past-offers.ctrl.js"></script>
+    <script src="components/owner/taskers/current-taskers/current-taskers.conf.js"></script>
+    <script src="components/owner/taskers/current-taskers/current-taskers.ctrl.js"></script>
+    <script src="components/owner/taskers/find-tasker/find-tasker.conf.js"></script>
+    <script src="components/owner/taskers/find-tasker/find-tasker.ctrl.js"></script>
+    <script src="components/owner/taskers/past-taskers/past-taskers.conf.js"></script>
+    <script src="components/owner/taskers/past-taskers/past-taskers.ctrl.js"></script>
+    <script src="components/tasker/jobs/available-jobs/available-jobs.conf.js"></script>
+    <script src="components/tasker/jobs/available-jobs/available-jobs.ctrl.js"></script>
+    <script src="components/tasker/jobs/current-jobs/current-jobs.conf.js"></script>
+    <script src="components/tasker/jobs/current-jobs/current-jobs.ctrl.js"></script>
+    <script src="components/tasker/jobs/past-jobs/past-jobs.conf.js"></script>
+    <script src="components/tasker/jobs/past-jobs/past-jobs.ctrl.js"></script>
+    <!-- endinject -->
 </body>
 </html>
