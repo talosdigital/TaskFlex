@@ -5,7 +5,7 @@ angular.module('tf-client')
     params: {
       alert: undefined
     },
-    templateUrl: '/components/password/request/request.html',
+    templateUrl: 'components/password/request/request.html',
     controller: 'RequestPasswordCtrl as request'
   })
 });

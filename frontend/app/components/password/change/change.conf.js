@@ -5,7 +5,7 @@ angular.module('tf-client')
     params: {
       alert: undefined
     },
-    templateUrl: '/components/password/change/change.html',
+    templateUrl: 'components/password/change/change.html',
     controller: 'ChangePasswordCtrl as changePassword'
   })
 });

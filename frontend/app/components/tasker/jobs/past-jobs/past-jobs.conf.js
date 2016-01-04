@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       page: '1'
     },
-    templateUrl: '/components/tasker/jobs/past-jobs/past-jobs.html',
+    templateUrl: 'components/tasker/jobs/past-jobs/past-jobs.html',
     controller: 'PastJobsCtrl as pastJobs'
   })
 });

@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       token: undefined
     },
-    templateUrl: '/components/password/reset/reset.html',
+    templateUrl: 'components/password/reset/reset.html',
     controller: 'ResetPasswordCtrl as reset'
   })
 });

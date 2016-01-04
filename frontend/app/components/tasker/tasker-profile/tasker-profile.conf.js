@@ -5,7 +5,7 @@ angular.module('tf-client')
     params: {
       alert: undefined
     },
-    templateUrl: '/components/tasker/tasker-profile/tasker-profile.html',
+    templateUrl: 'components/tasker/tasker-profile/tasker-profile.html',
     controller: 'TaskerProfileCtrl as taskerProfile'
   })
 });

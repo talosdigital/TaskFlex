@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       id: undefined
     },
-    templateUrl: '/components/tasker/apply-job/apply-job.html',
+    templateUrl: 'components/tasker/apply-job/apply-job.html',
     controller: 'ApplyJobCtrl as applyJob'
   })
 });

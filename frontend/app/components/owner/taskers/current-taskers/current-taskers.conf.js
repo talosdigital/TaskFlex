@@ -8,7 +8,7 @@ angular.module('tf-client')
       status: '',
       page: '1'
     },
-    templateUrl: '/components/owner/taskers/current-taskers/current-taskers.html',
+    templateUrl: 'components/owner/taskers/current-taskers/current-taskers.html',
     controller: 'CurrentTaskersCtrl as currentTaskers'
   })
 });

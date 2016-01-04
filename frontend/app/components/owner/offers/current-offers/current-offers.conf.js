@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       page: '1'
     },
-    templateUrl: '/components/owner/offers/current-offers/current-offers.html',
+    templateUrl: 'components/owner/offers/current-offers/current-offers.html',
     controller: 'CurrentOffersCtrl as currentOffers'
   })
 });

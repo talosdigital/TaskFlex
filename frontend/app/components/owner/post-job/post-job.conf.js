@@ -7,7 +7,7 @@ angular.module('tf-client')
       newJob: undefined,
       edit: undefined
     },
-    templateUrl: '/components/owner/post-job/post-job.html',
+    templateUrl: 'components/owner/post-job/post-job.html',
     controller: 'PostJobCtrl as postJob'
   })
 });

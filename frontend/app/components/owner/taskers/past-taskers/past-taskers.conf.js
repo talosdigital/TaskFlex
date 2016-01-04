@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       page: '1'
     },
-    templateUrl: '/components/owner/taskers/past-taskers/past-taskers.html',
+    templateUrl: 'components/owner/taskers/past-taskers/past-taskers.html',
     controller: 'PastTaskersCtrl as pastTaskers'
   })
 });

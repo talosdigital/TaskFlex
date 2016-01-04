@@ -8,7 +8,7 @@ angular.module('tf-client')
       hiring: undefined,
       posting: undefined
     },
-    templateUrl: '/components/sign-up/sign-up.html',
+    templateUrl: 'components/sign-up/sign-up.html',
     controller: 'SignUpCtrl as signUp'
   })
 });

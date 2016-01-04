@@ -6,7 +6,7 @@ angular.module('tf-client')
       id: undefined,
       offer: undefined // Will try to take this offer, if undefined, will fetch it with the id.
     },
-    templateUrl: '/components/owner/deal-confirmation/deal-confirmation.html',
+    templateUrl: 'components/owner/deal-confirmation/deal-confirmation.html',
     controller: 'DealConfirmationCtrl as deal'
   })
 });

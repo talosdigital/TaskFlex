@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       page: '1'
     },
-    templateUrl: '/components/tasker/applications/job-applications.html',
+    templateUrl: 'components/tasker/applications/job-applications.html',
     controller: 'JobApplicationsCtrl as applications'
   })
 });

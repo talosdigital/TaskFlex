@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       offer: undefined
     },
-    templateUrl: '/components/owner/offer-reply/offer-reply.html',
+    templateUrl: 'components/owner/offer-reply/offer-reply.html',
     controller: 'ReplyOfferCtrl as replyOffer'
   })
 });

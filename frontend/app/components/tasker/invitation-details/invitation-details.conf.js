@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       id: undefined
     },
-    templateUrl: '/components/tasker/invitation-details/invitation-details.html',
+    templateUrl: 'components/tasker/invitation-details/invitation-details.html',
     controller: 'InvitationDetailsCtrl as details'
   })
 });

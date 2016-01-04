@@ -9,7 +9,7 @@ angular.module('tf-client')
       expired: undefined,
       role: undefined
     },
-    templateUrl: '/components/login/login.html',
+    templateUrl: 'components/login/login.html',
     controller: 'LoginCtrl as login'
   })
 });

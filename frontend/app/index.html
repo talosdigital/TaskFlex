@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
+    <!-- build:css({.tmp,app}) styles/vendor.css -->
     <!-- bower:css-->
     <!-- endbower -->
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <!-- endbuild -->
 
+    <!-- build:css({.tmp/app,app}) styles/app.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="assets/css/styles.css">
     <!-- endinject -->
+    <!-- endbuild -->
 </head>
 
 <body ng-class="{ 'landing-home': ('landing' | isState),  'login': ('login' | isState),
@@ -40,109 +43,17 @@
         </div>
     </footer>
 
+    <!-- build:js({.tmp/app,.tmp,app}) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="lib/angular-cookies/angular-cookies.js"></script>
-    <script src="lib/angular-mocks/angular-mocks.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="lib/dolittle/dolittle.js"></script>
-    <script src="lib/ngstorage/ngStorage.js"></script>
-    <script src="lib/urijs/src/URI.js"></script>
     <!-- endbower -->
+    <!-- endbuild -->
 
+    <!-- build:js({.tmp/app,.tmp/partials,app}) scripts/app.js -->
     <!-- inject:js -->
-    <script src="main.js"></script>
-    <script src="filters/capitalize.filter.js"></script>
-    <script src="services/alert.service.js"></script>
-    <script src="services/auth.service.js"></script>
-    <script src="services/category.service.js"></script>
-    <script src="services/focus.service.js"></script>
-    <script src="services/invitation.service.js"></script>
-    <script src="services/job.service.js"></script>
-    <script src="services/locations.service.js"></script>
-    <script src="services/offer.service.js"></script>
-    <script src="services/owner.service.js"></script>
-    <script src="services/resource.service.js"></script>
-    <script src="services/tasker.service.js"></script>
-    <script src="services/user.service.js"></script>
-    <script src="components/header/header.ctrl.js"></script>
-    <script src="components/job-details/job-details.conf.js"></script>
-    <script src="components/job-details/job-details.ctrl.js"></script>
-    <script src="components/landing/landing.conf.js"></script>
-    <script src="components/landing/landing.ctrl.js"></script>
-    <script src="components/login/login.conf.js"></script>
-    <script src="components/login/login.ctrl.js"></script>
-    <script src="components/not-found/not-found.conf.js"></script>
-    <script src="components/not-found/not-found.ctrl.js"></script>
-    <script src="components/password/password.conf.js"></script>
-    <script src="components/role-choice/role-choice.conf.js"></script>
-    <script src="components/role-choice/role-choice.ctrl.js"></script>
-    <script src="components/sign-up/sign-up.conf.js"></script>
-    <script src="components/sign-up/sign-up.ctrl.js"></script>
-    <script src="directives/alert/tf-alert.dir.js"></script>
-    <script src="directives/date/tf-date.dir.js"></script>
-    <script src="directives/datepicker/tf-datepicker.dir.js"></script>
-    <script src="directives/dropdown/tf-dropdown.dir.js"></script>
-    <script src="directives/empty-message/tf-empty.dir.js"></script>
-    <script src="directives/job/job.dir.js"></script>
-    <script src="directives/paginator/tf-paginator.dir.js"></script>
-    <script src="directives/parse-to-number/tf-parse-to-number.dir.js"></script>
-    <script src="directives/read-more/hm-read.dir.js"></script>
-    <script src="directives/tasker/tasker.dir.js"></script>
-    <script src="services/facebook/facebook.init.js"></script>
-    <script src="services/facebook/facebook.service.js"></script>
-    <script src="components/owner/deal-confirmation/deal-confirmation.conf.js"></script>
-    <script src="components/owner/deal-confirmation/deal-confirmation.ctrl.js"></script>
-    <script src="components/owner/invite/invite.conf.js"></script>
-    <script src="components/owner/invite/invite.ctrl.js"></script>
-    <script src="components/owner/offer-replies/offer-replies.conf.js"></script>
-    <script src="components/owner/offer-replies/offer-replies.ctrl.js"></script>
-    <script src="components/owner/offer-reply/offer-reply.conf.js"></script>
-    <script src="components/owner/offer-reply/offer-reply.ctrl.js"></script>
-    <script src="components/owner/offers/my-offers.conf.js"></script>
-    <script src="components/owner/post-job/post-job.conf.js"></script>
-    <script src="components/owner/post-job/post-job.ctrl.js"></script>
-    <script src="components/owner/taskers/my-taskers.conf.js"></script>
-    <script src="components/password/change/change.conf.js"></script>
-    <script src="components/password/change/change.ctrl.js"></script>
-    <script src="components/password/request/request.conf.js"></script>
-    <script src="components/password/request/request.ctrl.js"></script>
-    <script src="components/password/reset/reset.conf.js"></script>
-    <script src="components/password/reset/reset.ctrl.js"></script>
-    <script src="components/tasker/applications/job-applications.conf.js"></script>
-    <script src="components/tasker/applications/job-applications.ctrl.js"></script>
-    <script src="components/tasker/apply-job/apply-job.conf.js"></script>
-    <script src="components/tasker/apply-job/apply-job.ctrl.js"></script>
-    <script src="components/tasker/edit-profile/edit-profile.conf.js"></script>
-    <script src="components/tasker/edit-profile/edit-profile.ctrl.js"></script>
-    <script src="components/tasker/invitation-details/invitation-details.conf.js"></script>
-    <script src="components/tasker/invitation-details/invitation-details.ctrl.js"></script>
-    <script src="components/tasker/invitations/tasker-invitations.conf.js"></script>
-    <script src="components/tasker/invitations/tasker-invitations.ctrl.js"></script>
-    <script src="components/tasker/jobs/my-jobs.conf.js"></script>
-    <script src="components/tasker/tasker-profile/tasker-profile.conf.js"></script>
-    <script src="components/tasker/tasker-profile/tasker-profile.ctrl.js"></script>
-    <script src="components/tasker/tasker-reply/tasker-reply.conf.js"></script>
-    <script src="components/tasker/tasker-reply/tasker-reply.ctrl.js"></script>
-    <script src="components/owner/offers/current-offers/current-offers.conf.js"></script>
-    <script src="components/owner/offers/current-offers/current-offers.ctrl.js"></script>
-    <script src="components/owner/offers/past-offers/past-offers.conf.js"></script>
-    <script src="components/owner/offers/past-offers/past-offers.ctrl.js"></script>
-    <script src="components/owner/taskers/current-taskers/current-taskers.conf.js"></script>
-    <script src="components/owner/taskers/current-taskers/current-taskers.ctrl.js"></script>
-    <script src="components/owner/taskers/find-tasker/find-tasker.conf.js"></script>
-    <script src="components/owner/taskers/find-tasker/find-tasker.ctrl.js"></script>
-    <script src="components/owner/taskers/past-taskers/past-taskers.conf.js"></script>
-    <script src="components/owner/taskers/past-taskers/past-taskers.ctrl.js"></script>
-    <script src="components/tasker/jobs/available-jobs/available-jobs.conf.js"></script>
-    <script src="components/tasker/jobs/available-jobs/available-jobs.ctrl.js"></script>
-    <script src="components/tasker/jobs/current-jobs/current-jobs.conf.js"></script>
-    <script src="components/tasker/jobs/current-jobs/current-jobs.ctrl.js"></script>
-    <script src="components/tasker/jobs/past-jobs/past-jobs.conf.js"></script>
-    <script src="components/tasker/jobs/past-jobs/past-jobs.ctrl.js"></script>
     <!-- endinject -->
+
+    <!-- inject:partials -->
+    <!-- endinject -->
+    <!-- endbuild -->
 </body>
 </html>

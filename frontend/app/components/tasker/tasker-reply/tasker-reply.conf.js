@@ -8,7 +8,7 @@ angular.module('tf-client')
       invitation: undefined,
       accepting: undefined
     },
-    templateUrl: '/components/tasker/tasker-reply/tasker-reply.html',
+    templateUrl: 'components/tasker/tasker-reply/tasker-reply.html',
     controller: 'TaskerReplyCtrl as taskerReply'
   })
 });

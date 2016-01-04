@@ -6,7 +6,7 @@ angular.module('tf-client')
       alert: undefined,
       job: undefined
     },
-    templateUrl: '/components/job-details/job-details.html',
+    templateUrl: 'components/job-details/job-details.html',
     controller: 'JobDetailsCtrl as jobDetails'
   })
 });
