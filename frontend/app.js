@@ -1,16 +1,17 @@
-var express = require('express');
-var path = require('path');
-var app = express();
+var express = require('express'),
+    path    = require('path'),
+    app     = express(),
+    conf    = require(path.join(__dirname, 'gulp/conf.js'));
 
-var env =  process.env.NODE_ENV || 'development';
+var env = process.env.EXPRESS_ENV || 'develop';
 
-if (env === 'development') {
-  app.use(express.static(path.join(__dirname, '.tmp', 'app')));
-  app.use(express.static(path.join(__dirname, '.tmp', 'partials')));
-  app.use(express.static(path.join(__dirname, 'app')));
+if (env === 'develop') {
+  app.use(express.static(path.join(__dirname, conf.paths.tmp, conf.paths.app)));
+  app.use(express.static(path.join(__dirname, conf.paths.tmp, conf.paths.partials)));
+  app.use(express.static(path.join(__dirname, conf.paths.app)));
 }
 else {
-  app.use(express.static(path.join(__dirname, 'dist')));
+  app.use(express.static(path.join(__dirname, conf.paths.dist)));
 }
 
 var port = process.env.TASKFLEX_FRONT_END_PORT || 8000;
