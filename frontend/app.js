@@ -3,6 +3,8 @@ var express = require('express'),
     app     = express(),
     conf    = require(path.join(__dirname, 'gulp/conf.js'));
 
+app.use(require('connect-livereload')());
+
 var env = process.env.EXPRESS_ENV || 'develop';
 
 if (env === 'develop') {

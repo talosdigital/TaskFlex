@@ -166,13 +166,27 @@ gulp.task('serve:dist', function(callback) {
 });
 
 /*
+ * Builds the source files to be run in development.
+ * This function is used by the 'watch' functions. When a change
+ * is detected, the watch will call this function, which is
+ * going to build the source files and notifies the express to
+ * reload the browser page using livereload.
+ */
+var buildAndReload = function(event) {
+  $.runSequence('build:dev', function() {
+    $.express.notify(event);
+  });
+};
+
+/*
  * Watches the source files and executes the builder once there is a change.
  */
 gulp.task('watch', function() {
-  gulp.watch([path.join(conf.paths.app, 'assets/less.*.less')], ['build:dev']);
-  gulp.watch([path.join(conf.paths.app, '**/*.js')], ['build:dev']);
-  gulp.watch([path.join(conf.paths.app, '**/*.html')], ['build:dev']);
-})
+  gulp.watch([path.join(conf.paths.app, 'assets/less/*.less')], buildAndReload);
+  gulp.watch([path.join(conf.paths.app, '**/*.js')], buildAndReload);
+  gulp.watch([path.join(conf.paths.app, '**/*.html')], buildAndReload);
+});
+
 /*
  * Opens a browser tab with the localhost running server.
  */
